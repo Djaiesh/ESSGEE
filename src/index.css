@@ -1,0 +1,254 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700;800&family=Manrope:wght@300;400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* ── 60-30-10 Brand Palette ── */
+    /* 60% — Main Space (backgrounds) */
+    --main-space: 210 20% 97%;
+    /* #F4F7F9 */
+
+    /* 30% — Slate Navy (headings, nav, footer) */
+    --slate-navy: 210 28% 28%;
+    /* #33475B */
+    --slate-navy-light: 210 20% 40%;
+    /* lighter variant for body text */
+
+    /* 10% — Deep Azure (links, icons, primary buttons) */
+    --deep-azure: 207 100% 37%;
+    /* #0070BB */
+
+    /* Pop — Vivid Amber (CTAs only) */
+    --vivid-amber: 19 100% 47%;
+    /* #F04A00 */
+    --vivid-amber-light: 19 100% 57%;
+    /* hover/lighter variant */
+
+    /* Legacy aliases (mapped to new palette) */
+    --fence-green: var(--slate-navy);
+    --norfolk-green: var(--slate-navy);
+    --fiery-glow: var(--vivid-amber);
+    --pumpkin-vapor: var(--vivid-amber-light);
+    --venetian-lace: 0 0% 100%;
+    --macadamia-beige: var(--main-space);
+
+    /* Semantic Tokens */
+    --background: var(--main-space);
+    --foreground: var(--slate-navy);
+    --card: 0 0% 100%;
+    --card-foreground: var(--slate-navy);
+    --popover: 0 0% 100%;
+    --popover-foreground: var(--slate-navy);
+    --primary: var(--deep-azure);
+    --primary-foreground: 0 0% 100%;
+    --secondary: var(--slate-navy);
+    --secondary-foreground: 0 0% 100%;
+    --accent: var(--vivid-amber);
+    --accent-foreground: 0 0% 100%;
+    --muted: 210 15% 93%;
+    --muted-foreground: var(--slate-navy-light);
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 210 15% 88%;
+    --input: 210 15% 88%;
+    --ring: var(--deep-azure);
+    --radius: 0.5rem;
+
+    /* Custom tokens */
+    --glass-bg: 210 28% 28% / 0.85;
+    --glass-border: 0 0% 100% / 0.1;
+    --section-spacing: clamp(60px, 8vw, 120px);
+    --nav-height: 72px;
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: var(--nav-height);
+  }
+
+  body {
+    @apply bg-background text-foreground font-body antialiased;
+  }
+
+  h1,
+  h2,
+  h3 {
+    @apply font-display;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+@layer components {
+
+  /* ── Navigation ── */
+  .glass-nav {
+    @apply backdrop-blur-xl border-b;
+    background: hsla(var(--slate-navy) / 0.92);
+    border-color: hsla(var(--glass-border));
+  }
+
+  .glass-nav-transparent {
+    @apply backdrop-blur-none border-b;
+    background: transparent;
+    border-color: transparent;
+  }
+
+  /* ── Sections ── */
+  .section-padding {
+    padding-top: var(--section-spacing);
+    padding-bottom: var(--section-spacing);
+  }
+
+  /* 30% — Slate Navy backgrounds (nav, footer, hero overlays) */
+  .section-dark {
+    background-color: hsl(var(--slate-navy));
+    color: white;
+  }
+
+  /* 60% — Main Space backgrounds */
+  .section-light {
+    background-color: hsl(var(--main-space));
+    color: hsl(var(--slate-navy));
+  }
+
+  .section-cream {
+    background-color: hsl(var(--main-space));
+    color: hsl(var(--slate-navy));
+  }
+
+  /* ── Text ── */
+  .text-gradient {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(135deg, hsl(var(--deep-azure)), hsl(var(--vivid-amber)));
+  }
+
+  /* ── Cards ── */
+  .card-lift {
+    @apply transition-all duration-300;
+  }
+
+  .card-lift:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 40px -12px hsla(var(--slate-navy) / 0.12);
+  }
+
+  /* ── Links / Underline ── */
+  .animated-underline {
+    @apply relative inline-block;
+  }
+
+  .animated-underline::after {
+    content: '';
+    @apply absolute w-full h-0.5 bottom-0 left-0 origin-bottom-right transition-transform duration-300;
+    background: hsl(var(--deep-azure));
+    transform: scaleX(0);
+  }
+
+  .animated-underline:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+  }
+
+  /* ── Buttons ── */
+  /* 10% — Primary blue button */
+  .btn-cta {
+    @apply inline-flex items-center justify-center px-8 py-3 text-sm font-semibold tracking-wide uppercase rounded-full transition-all duration-300;
+    background: hsl(var(--deep-azure));
+    color: white;
+  }
+
+  .btn-cta:hover {
+    background: hsl(207 100% 30%);
+    transform: scale(1.03);
+    box-shadow: 0 8px 24px -4px hsla(var(--deep-azure) / 0.35);
+  }
+
+  /* Pop — Vivid Amber CTA (use sparingly) */
+  .btn-pop {
+    @apply inline-flex items-center justify-center px-8 py-3 text-sm font-semibold tracking-wide uppercase rounded-full transition-all duration-300;
+    background: hsl(var(--vivid-amber));
+    color: white;
+  }
+
+  .btn-pop:hover {
+    background: hsl(19 100% 40%);
+    transform: scale(1.03);
+    box-shadow: 0 8px 24px -4px hsla(var(--vivid-amber) / 0.4);
+  }
+
+  .btn-outline {
+    @apply inline-flex items-center justify-center px-8 py-3 text-sm font-semibold tracking-wide uppercase rounded-full transition-all duration-300 border-2;
+    border-color: white;
+    color: white;
+    background: transparent;
+  }
+
+  .btn-outline:hover {
+    background: white;
+    color: hsl(var(--slate-navy));
+  }
+
+  /* ── Counter ── */
+  .counter-value {
+    @apply font-display font-bold;
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    line-height: 1;
+    color: hsl(var(--deep-azure));
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+/* ── Seamless Infinite Carousel ── */
+@keyframes carousel-scroll {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.carousel-track {
+  animation: carousel-scroll 28s linear infinite;
+  will-change: transform;
+  width: max-content;
+}
+
+.carousel-track:hover {
+  animation-play-state: paused;
+}
