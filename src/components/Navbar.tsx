@@ -41,7 +41,6 @@ const NAV_LINKS: NavItem[] = [
     href: "/proof",
     subs: [
       { label: "Case Studies", href: "/proof#case-studies" },
-      { label: "Track Record", href: "/proof#track-record" },
       { label: "Clients", href: "/proof#clients" },
       { label: "Testimonials", href: "/proof#testimonials" },
     ],
