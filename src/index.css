@@ -6,34 +6,18 @@
 
 @layer base {
   :root {
-    /* ── 60-30-10 Brand Palette ── */
-    /* 60% — Main Space (backgrounds) */
-    --main-space: 210 20% 97%;
-    /* #F4F7F9 */
+    /* Ultra-Premium Industrial Theme */
+    /* Dark / Charcoal for main dark sections */
+    --slate-navy: 220 14% 12%;       /* Deep Charcoal #1a1c23 */
+    --slate-navy-light: 220 14% 35%; /* Steel Grey */
 
-    /* 30% — Slate Navy (headings, nav, footer) */
-    --slate-navy: 210 28% 28%;
-    /* #33475B */
-    --slate-navy-light: 210 20% 40%;
-    /* lighter variant for body text */
+    /* Light sleek backgrounds */
+    --main-space: 220 10% 96%;       /* Very light grey for contrast */
 
-    /* 10% — Deep Azure (links, icons, primary buttons) */
-    --deep-azure: 207 100% 37%;
-    /* #0070BB */
-
-    /* Pop — Vivid Amber (CTAs only) */
-    --vivid-amber: 19 100% 47%;
-    /* #F04A00 */
-    --vivid-amber-light: 19 100% 57%;
-    /* hover/lighter variant */
-
-    /* Legacy aliases (mapped to new palette) */
-    --fence-green: var(--slate-navy);
-    --norfolk-green: var(--slate-navy);
-    --fiery-glow: var(--vivid-amber);
-    --pumpkin-vapor: var(--vivid-amber-light);
-    --venetian-lace: 0 0% 100%;
-    --macadamia-beige: var(--main-space);
+    /* Accents */
+    --deep-azure: 210 100% 40%;      /* Electric Blue #0066cc */
+    --vivid-amber: 24 100% 50%;      /* Strong subtle orange #ff6600 */
+    --vivid-amber-light: 24 100% 60%;
 
     /* Semantic Tokens */
     --background: var(--main-space);
@@ -48,29 +32,20 @@
     --secondary-foreground: 0 0% 100%;
     --accent: var(--vivid-amber);
     --accent-foreground: 0 0% 100%;
-    --muted: 210 15% 93%;
+    --muted: 220 10% 90%;
     --muted-foreground: var(--slate-navy-light);
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 100%;
-    --border: 210 15% 88%;
-    --input: 210 15% 88%;
-    --ring: var(--deep-azure);
+    --border: 220 10% 85%;
+    --input: 220 10% 85%;
+    --ring: var(--vivid-amber);
     --radius: 0.5rem;
 
     /* Custom tokens */
-    --glass-bg: 210 28% 28% / 0.85;
+    --glass-bg: 220 14% 12% / 0.85;
     --glass-border: 0 0% 100% / 0.1;
-    --section-spacing: clamp(60px, 8vw, 120px);
+    --section-spacing: clamp(80px, 12vw, 160px);
     --nav-height: 72px;
-
-    --sidebar-background: 0 0% 98%;
-    --sidebar-foreground: 240 5.3% 26.1%;
-    --sidebar-primary: 240 5.9% 10%;
-    --sidebar-primary-foreground: 0 0% 98%;
-    --sidebar-accent: 240 4.8% 95.9%;
-    --sidebar-accent-foreground: 240 5.9% 10%;
-    --sidebar-border: 220 13% 91%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
   }
 }
 
@@ -80,25 +55,37 @@
   }
 
   html {
-    scroll-behavior: smooth;
-    scroll-padding-top: var(--nav-height);
+    background-color: hsl(var(--slate-navy));
   }
 
   body {
     @apply bg-background text-foreground font-body antialiased;
+    overflow-x: hidden;
   }
 
-  h1,
-  h2,
-  h3 {
-    @apply font-display;
+  h1, h2, h3 {
+    @apply font-display text-balance;
+  }
+
+  /* Lenis smooth scrolling requirement */
+  html.lenis, html.lenis body {
+    height: auto;
+  }
+  .lenis.lenis-smooth {
+    scroll-behavior: auto !important;
+  }
+  .lenis.lenis-smooth [data-lenis-prevent] {
+    overscroll-behavior: contain;
+  }
+  .lenis.lenis-stopped {
+    overflow: hidden;
+  }
+  .lenis.lenis-scrolling iframe {
+    pointer-events: none;
   }
 
   @media (prefers-reduced-motion: reduce) {
-
-    *,
-    *::before,
-    *::after {
+    *, *::before, *::after {
       animation-duration: 0.01ms !important;
       animation-iteration-count: 1 !important;
       transition-duration: 0.01ms !important;
@@ -111,13 +98,14 @@
 
   /* ── Navigation ── */
   .glass-nav {
-    @apply backdrop-blur-xl border-b;
-    background: hsla(var(--slate-navy) / 0.92);
+    @apply backdrop-blur-2xl border-b transition-all duration-500;
+    background: hsla(220, 14%, 12%, 0.8);
     border-color: hsla(var(--glass-border));
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
   }
 
   .glass-nav-transparent {
-    @apply backdrop-blur-none border-b;
+    @apply backdrop-blur-none border-b transition-all duration-500;
     background: transparent;
     border-color: transparent;
   }
@@ -128,20 +116,18 @@
     padding-bottom: var(--section-spacing);
   }
 
-  /* 30% — Slate Navy backgrounds (nav, footer, hero overlays) */
   .section-dark {
     background-color: hsl(var(--slate-navy));
     color: white;
   }
 
-  /* 60% — Main Space backgrounds */
   .section-light {
     background-color: hsl(var(--main-space));
     color: hsl(var(--slate-navy));
   }
 
   .section-cream {
-    background-color: hsl(var(--main-space));
+    background-color: #f7f8f9;
     color: hsl(var(--slate-navy));
   }
 
@@ -151,14 +137,14 @@
     background-image: linear-gradient(135deg, hsl(var(--deep-azure)), hsl(var(--vivid-amber)));
   }
 
-  /* ── Cards ── */
+  /* ── Premium Cards ── */
   .card-lift {
-    @apply transition-all duration-300;
+    @apply transition-all duration-700 ease-out;
   }
 
   .card-lift:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 20px 40px -12px hsla(var(--slate-navy) / 0.12);
+    transform: translateY(-6px);
+    box-shadow: 0 25px 50px -12px rgba(20, 20, 25, 0.15);
   }
 
   /* ── Links / Underline ── */
@@ -168,8 +154,8 @@
 
   .animated-underline::after {
     content: '';
-    @apply absolute w-full h-0.5 bottom-0 left-0 origin-bottom-right transition-transform duration-300;
-    background: hsl(var(--deep-azure));
+    @apply absolute w-full h-0.5 bottom-0 left-0 origin-bottom-right transition-transform duration-500 ease-out;
+    background: hsl(var(--vivid-amber));
     transform: scaleX(0);
   }
 
@@ -178,36 +164,36 @@
     transform-origin: bottom left;
   }
 
-  /* ── Buttons ── */
-  /* 10% — Primary blue button */
+  /* ── Buttons (Magnetic Feel) ── */
   .btn-cta {
-    @apply inline-flex items-center justify-center px-8 py-3 text-sm font-semibold tracking-wide uppercase rounded-full transition-all duration-300;
-    background: hsl(var(--deep-azure));
+    @apply inline-flex items-center justify-center px-8 py-3.5 text-sm font-semibold tracking-wide uppercase rounded-full transition-all duration-500 ease-out;
+    background: hsl(var(--slate-navy));
     color: white;
+    box-shadow: 0 0 0 1px hsl(var(--slate-navy));
   }
 
   .btn-cta:hover {
-    background: hsl(207 100% 30%);
-    transform: scale(1.03);
-    box-shadow: 0 8px 24px -4px hsla(var(--deep-azure) / 0.35);
+    background: hsl(220, 14%, 8%);
+    transform: scale(1.02) translateY(-2px);
+    box-shadow: 0 10px 30px -5px rgba(20, 20, 25, 0.4), 0 0 0 1px hsl(var(--slate-navy));
   }
 
-  /* Pop — Vivid Amber CTA (use sparingly) */
   .btn-pop {
-    @apply inline-flex items-center justify-center px-8 py-3 text-sm font-semibold tracking-wide uppercase rounded-full transition-all duration-300;
+    @apply inline-flex items-center justify-center px-8 py-3.5 text-sm font-semibold tracking-wide uppercase rounded-full transition-all duration-500 ease-out;
     background: hsl(var(--vivid-amber));
     color: white;
+    box-shadow: inset 0 0 0 1px rgba(255,255,255,0.2);
   }
 
   .btn-pop:hover {
-    background: hsl(19 100% 40%);
-    transform: scale(1.03);
-    box-shadow: 0 8px 24px -4px hsla(var(--vivid-amber) / 0.4);
+    background: hsl(24, 100%, 45%);
+    transform: scale(1.02) translateY(-2px);
+    box-shadow: inset 0 0 0 1px rgba(255,255,255,0.4), 0 15px 35px -5px rgba(240, 74, 0, 0.5);
   }
 
   .btn-outline {
-    @apply inline-flex items-center justify-center px-8 py-3 text-sm font-semibold tracking-wide uppercase rounded-full transition-all duration-300 border-2;
-    border-color: white;
+    @apply inline-flex items-center justify-center px-8 py-3.5 text-sm font-semibold tracking-wide uppercase rounded-full transition-all duration-500 ease-out border-2;
+    border-color: rgba(255, 255, 255, 0.3);
     color: white;
     background: transparent;
   }
@@ -215,6 +201,9 @@
   .btn-outline:hover {
     background: white;
     color: hsl(var(--slate-navy));
+    border-color: white;
+    transform: scale(1.02) translateY(-2px);
+    box-shadow: 0 15px 35px -5px rgba(255, 255, 255, 0.2);
   }
 
   /* ── Counter ── */
@@ -222,7 +211,7 @@
     @apply font-display font-bold;
     font-size: clamp(2.5rem, 5vw, 4rem);
     line-height: 1;
-    color: hsl(var(--deep-azure));
+    color: hsl(var(--vivid-amber));
   }
 }
 
@@ -230,25 +219,4 @@
   .text-balance {
     text-wrap: balance;
   }
-}
-
-/* ── Seamless Infinite Carousel ── */
-@keyframes carousel-scroll {
-  0% {
-    transform: translateX(0);
-  }
-
-  100% {
-    transform: translateX(-50%);
-  }
-}
-
-.carousel-track {
-  animation: carousel-scroll 28s linear infinite;
-  will-change: transform;
-  width: max-content;
-}
-
-.carousel-track:hover {
-  animation-play-state: paused;
 }
