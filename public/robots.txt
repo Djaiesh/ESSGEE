@@ -1,4 +1,8 @@
 User-agent: *
 Allow: /
+Disallow: /assets/
 
 Sitemap: https://www.essgee.pro/sitemap.xml
+
+# ESSGEE Projects - Strategy, Governance & Delivery Advisory
+# https://www.essgee.pro

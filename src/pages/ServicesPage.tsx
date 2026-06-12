@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import { servicePillars } from "@/data/siteContent";
 import { Lightbulb, ShieldCheck, Rocket, CheckCircle2 } from "lucide-react";
 import capabilitiesHero from "@/assets/capabilities-hero.jpg";
+import ParallaxBackground from "@/components/ParallaxBackground";
 
 import strategyImg from "@/assets/cap-bid-strategy.png";
 import governanceImg from "@/assets/cap-governance.png";
@@ -55,19 +56,22 @@ const ServicesPage = () => (
           <section
             key={pillar.id}
             id={pillar.id}
-            className={`${isEven ? "section-light" : "section-cream"} section-padding scroll-mt-24`}
+            className={`relative overflow-visible ${isEven ? "section-light" : "section-cream"} section-padding scroll-mt-24`}
           >
-            <div className="container mx-auto px-6">
-              <SectionReveal>
-                <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-start">
-                  
-                  {/* Image Column (Sticky on Desktop) */}
-                  <div className={`lg:col-span-5 rounded-2xl overflow-hidden shadow-xl aspect-[4/3] lg:sticky lg:top-28 ${!isEven ? "lg:order-2" : ""}`}>
+            <ParallaxBackground variant="light" />
+            <div className="container mx-auto px-6 relative z-10">
+              <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+                
+                {/* Image Column (Sticky on Desktop) */}
+                <div className={`lg:col-span-5 rounded-2xl overflow-hidden shadow-xl aspect-[4/3] lg:sticky lg:top-28 ${!isEven ? "lg:order-2" : ""}`}>
+                  <SectionReveal>
                     <img src={pillarImages[pillar.id]} alt={pillar.title} className="w-full h-full object-cover" loading="lazy" />
-                  </div>
+                  </SectionReveal>
+                </div>
 
-                  {/* Content Column */}
-                  <div className={`lg:col-span-7 ${!isEven ? "lg:order-1" : ""}`}>
+                {/* Content Column */}
+                <div className={`lg:col-span-7 ${!isEven ? "lg:order-1" : ""}`}>
+                  <SectionReveal>
                     <div className="flex items-center gap-4 mb-6">
                       <div className={`w-14 h-14 rounded-2xl ${colors.bg} flex items-center justify-center`}>
                         <Icon className={`w-7 h-7 ${colors.text}`} strokeWidth={1.5} />
@@ -110,11 +114,10 @@ const ServicesPage = () => (
                         ))}
                       </div>
                     )}
-
-                  </div>
-
+                  </SectionReveal>
                 </div>
-              </SectionReveal>
+
+              </div>
             </div>
           </section>
         );

@@ -7,6 +7,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { MagneticButton } from "./MagneticButton";
 import { homeServiceCards } from "@/data/siteContent";
+import ParallaxBackground from "./ParallaxBackground";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -79,8 +80,10 @@ const CapabilitiesSection = () => {
   }, []);
 
   return (
-    <section ref={sectionRef} id="services" className="section-cream section-padding" aria-labelledby="cap-heading">
-      <div className="container mx-auto px-6">
+    <section ref={sectionRef} id="services" className="relative section-cream section-padding overflow-hidden" aria-labelledby="cap-heading">
+      {/* 3D Parallax Scrolling Background */}
+      <ParallaxBackground variant="light" />
+      <div className="container mx-auto px-6 relative z-10">
         <div className="grid lg:grid-cols-2 gap-16 items-center mb-16">
           <div className="rounded-xl overflow-hidden aspect-[4/3]">
             <img ref={imgRef} src={capImg} alt="Professional advisory and project governance" className="w-full h-full object-cover" loading="lazy" />

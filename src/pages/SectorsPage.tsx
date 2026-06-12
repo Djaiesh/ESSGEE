@@ -10,6 +10,7 @@ import socialImg from "@/assets/sector-social.jpg";
 import waterImg from "@/assets/sector-water.jpg";
 import resourcesImg from "@/assets/sector-resources.jpg";
 import defenceImg from "@/assets/sector-defence.jpg";
+import ParallaxBackground from "@/components/ParallaxBackground";
 
 const sectorImages: Record<string, string> = {
   infrastructure: transportImg,
@@ -38,8 +39,9 @@ const SectorsPage = () => (
       </section>
 
       {/* Sectors grid */}
-      <section className="section-light section-padding">
-        <div className="container mx-auto px-6 space-y-20">
+      <section className="relative overflow-hidden section-light section-padding">
+        <ParallaxBackground variant="light" />
+        <div className="container mx-auto px-6 space-y-20 relative z-10">
           {sectors.map((sector, i) => (
             <SectionReveal key={sector.id}>
               <div id={sector.id} className="scroll-mt-24 grid lg:grid-cols-2 gap-12 items-center">
@@ -57,8 +59,9 @@ const SectorsPage = () => (
       </section>
 
       {/* CTA */}
-      <section className="section-dark section-padding bg-slate-navy">
-        <div className="container mx-auto px-6 max-w-3xl text-center">
+      <section className="relative overflow-hidden section-dark section-padding bg-slate-navy">
+        <ParallaxBackground variant="dark" />
+        <div className="container mx-auto px-6 max-w-3xl text-center relative z-10">
           <SectionReveal>
             <h2 className="text-h2 text-white mb-6">Need Sector-Specific Advisory Support?</h2>
             <p className="text-body-lg text-white/70 mb-10">
@@ -66,7 +69,7 @@ const SectorsPage = () => (
             </p>
             <div className="flex flex-col sm:flex-row justify-center gap-4">
               <Link to="/contact#connect" className="btn-pop">Discuss Your Opportunity</Link>
-              <a href={site.capabilityStatement} download className="btn-outline inline-flex items-center gap-2">
+              <a href={site.capabilityStatement} download="ESSGEE Capability Statement.pdf" className="btn-outline inline-flex items-center gap-2">
                 <Download className="w-4 h-4" />Download Capability Statement
               </a>
             </div>

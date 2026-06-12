@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import SectionReveal from "./SectionReveal";
 import { specialists } from "@/data/siteContent";
+import ParallaxBackground from "./ParallaxBackground";
 
 const UserAvatarPlaceholder = () => (
   <div className="w-16 h-16 rounded-full bg-gradient-to-br from-slate-navy to-slate-navy/80 border-2 border-teal-accent/30 flex items-center justify-center overflow-hidden shrink-0 shadow-md group-hover:border-vivid-amber transition-all duration-500">
@@ -11,8 +12,9 @@ const UserAvatarPlaceholder = () => (
 );
 
 const SpecialistsSection = () => (
-  <section className="section-cream section-padding scroll-mt-20" aria-labelledby="specialists-heading">
-    <div className="container mx-auto px-6">
+  <section className="relative overflow-hidden section-cream section-padding scroll-mt-24" aria-labelledby="specialists-heading">
+    <ParallaxBackground variant="light" />
+    <div className="container mx-auto px-6 relative z-10">
       <SectionReveal>
         <p className="text-micro uppercase tracking-[0.2em] text-teal-accent mb-4">Our Team</p>
         <h2 id="specialists-heading" className="text-h2 text-slate-navy mb-5">Specialists. Not Generalists.</h2>

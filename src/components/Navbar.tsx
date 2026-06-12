@@ -106,10 +106,10 @@ const Navbar = () => {
       }`}
       role="banner"
     >
-      <nav className="container mx-auto flex items-center justify-between px-6 h-20" aria-label="Main navigation">
+      <nav className="container mx-auto flex items-center justify-between px-6 h-24" aria-label="Main navigation">
         <Link to="/" className="flex items-center gap-3 z-10" aria-label="ESSGEE home">
           <img src={logo} alt="ESSGEE Projects" className="h-12 w-12 rounded-md object-cover border border-white/20 shadow-md" />
-          <span className="text-sm font-bold tracking-[0.16em] text-vivid-amber">ESSGEE PROJECTS</span>
+          <span className="text-lg md:text-xl font-bold tracking-[0.15em] font-display text-vivid-amber inline-block">ESSGEE PROJECTS</span>
         </Link>
 
         {/* Desktop nav */}
@@ -125,10 +125,10 @@ const Navbar = () => {
                 {renderLink(
                   link.href,
                   <>
-                    {link.label}
+                    <span className="nav-link-underline">{link.label}</span>
                     {link.subs && <ChevronDown className="w-3.5 h-3.5 mt-0.5" />}
                   </>,
-                  `flex items-center gap-1 px-4 py-2 rounded-full text-sm font-medium tracking-wide text-white/80 hover:text-vivid-amber hover:bg-white/10 transition-all duration-200`
+                  `flex items-center gap-1 px-3 py-2 text-xs font-semibold uppercase tracking-[0.16em] text-white/70 hover:text-vivid-amber transition-colors duration-300 group`
                 )}
               </div>
 
@@ -136,19 +136,19 @@ const Navbar = () => {
               <AnimatePresence>
                 {link.subs && openDropdown === link.label && (
                   <motion.div
-                    initial={{ opacity: 0, y: 8 }}
+                    initial={{ opacity: 0, y: 12 }}
                     animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: 8 }}
-                    transition={{ duration: 0.2 }}
-                    className="absolute top-full left-0 mt-1 w-64 rounded-lg overflow-hidden border border-white/10 shadow-2xl"
-                    style={{ background: "hsla(220, 14%, 15%, 0.95)", backdropFilter: "blur(16px)" }}
+                    exit={{ opacity: 0, y: 12 }}
+                    transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
+                    className="absolute top-full left-0 mt-2 w-64 rounded-lg overflow-hidden border border-white/10 border-t-vivid-amber shadow-[0_20px_50px_rgba(0,0,0,0.35)]"
+                    style={{ background: "hsla(220, 14%, 13%, 0.97)", backdropFilter: "blur(20px)" }}
                   >
                     {link.subs.map((sub) => (
                       <div key={sub.label}>
                         {renderLink(
                           sub.href,
                           sub.label,
-                          "block px-5 py-3 text-xs text-white/65 hover:text-vivid-amber hover:bg-white/5 transition-all duration-150 flex items-center gap-2 group/item",
+                          "block px-5 py-3.5 text-xs font-semibold uppercase tracking-[0.1em] text-white/60 hover:text-vivid-amber hover:bg-white/5 transition-all duration-150 flex items-center gap-2 group/item",
                           () => setOpenDropdown(null)
                         )}
                       </div>
@@ -179,7 +179,7 @@ const Navbar = () => {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.3 }}
-            className="lg:hidden absolute inset-x-0 top-20 glass-nav border-t-0 max-h-[80vh] overflow-y-auto"
+            className="lg:hidden absolute inset-x-0 top-24 glass-nav border-t border-t-white/10 max-h-[80vh] overflow-y-auto"
           >
             <ul className="flex flex-col py-4">
               {NAV_LINKS.map((link) => (

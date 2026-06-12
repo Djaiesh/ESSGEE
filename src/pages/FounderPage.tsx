@@ -7,6 +7,7 @@ import satyaImg from "@/assets/satya.jpeg";
 import { leadershipDetails, site } from "@/data/siteContent";
 import connectHero from "@/assets/connect-hero.jpg";
 import SpecialistsSection from "@/components/SpecialistsSection";
+import ParallaxBackground from "@/components/ParallaxBackground";
 
 const FounderPage = () => (
   <>
@@ -30,8 +31,9 @@ const FounderPage = () => (
       </section>
 
       {/* Founder Bio */}
-      <section className="section-light pt-20 pb-20" aria-labelledby="founder-heading">
-        <div className="container mx-auto px-6">
+      <section className="relative overflow-hidden section-light pt-20 pb-20" aria-labelledby="founder-heading">
+        <ParallaxBackground variant="light" />
+        <div className="container mx-auto px-6 relative z-10">
           <SectionReveal>
             <div className="flex items-center gap-3 justify-center mb-4">
               <Award className="w-5 h-5 text-vivid-amber" />
@@ -76,7 +78,7 @@ const FounderPage = () => (
                   </p>
                   <div className="flex flex-wrap gap-2">
                     {leadershipDetails.credentials.map(c => (
-                      <span key={c} className="text-xs px-3 py-1.5 rounded-full border border-teal-accent/20 bg-teal-accent/5 text-teal-accent font-semibold">
+                      <span key={c} className="text-xs px-3.5 py-1.5 rounded-sm border border-teal-accent/25 bg-teal-accent/5 text-teal-accent font-medium tracking-wide">
                         {c}
                       </span>
                     ))}
@@ -87,7 +89,7 @@ const FounderPage = () => (
                 <div className="mb-8 pt-6 border-t border-border/40">
                   <a
                     href={site.capabilityStatement}
-                    download
+                    download="ESSGEE Capability Statement.pdf"
                     className="btn-pop inline-flex items-center gap-2"
                   >
                     <Download className="w-4 h-4" strokeWidth={2.5} />
@@ -124,8 +126,9 @@ const FounderPage = () => (
       <SpecialistsSection />
 
       {/* CTA */}
-      <section className="section-dark section-padding bg-slate-navy">
-        <div className="container mx-auto px-6 max-w-3xl text-center">
+      <section className="relative overflow-hidden section-dark section-padding bg-slate-navy">
+        <ParallaxBackground variant="dark" />
+        <div className="container mx-auto px-6 max-w-3xl text-center relative z-10">
           <SectionReveal>
             <h2 className="text-h2 text-white mb-6">Work With Us</h2>
             <p className="text-body-lg text-white/70 mb-10">

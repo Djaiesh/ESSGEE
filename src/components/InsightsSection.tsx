@@ -3,6 +3,7 @@ import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { insights } from "@/data/siteContent";
+import ParallaxBackground from "./ParallaxBackground";
 
 const InsightsSection = () => {
   const sectionRef = useRef<HTMLElement>(null);
@@ -12,8 +13,10 @@ const InsightsSection = () => {
   useScrollAnimation({ triggerRef: gridRef, childrenSelector: ".insights-card", stagger: 0.08, y: 25 });
 
   return (
-    <section ref={sectionRef} id="insights" className="section-light section-padding" aria-labelledby="insights-heading">
-      <div className="container mx-auto px-6">
+    <section ref={sectionRef} id="insights" className="relative section-light section-padding overflow-hidden" aria-labelledby="insights-heading">
+      {/* 3D Parallax Scrolling Background */}
+      <ParallaxBackground variant="light" />
+      <div className="container mx-auto px-6 relative z-10">
         <div className="text-center mb-16">
           <p className="insights-text text-micro uppercase tracking-[0.15em] text-teal-accent mb-4">Knowledge</p>
           <h2 id="insights-heading" className="insights-text text-h2 text-slate-navy">Insights</h2>

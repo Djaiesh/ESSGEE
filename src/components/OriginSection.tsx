@@ -4,6 +4,7 @@ import { Layers, Compass, Leaf, BarChart3 } from "lucide-react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { useParallax } from "@/hooks/useParallax";
 import { whyEssgee } from "@/data/siteContent";
+import ParallaxBackground from "./ParallaxBackground";
 
 const iconMap = [Layers, Compass, Leaf, BarChart3];
 
@@ -42,8 +43,10 @@ const OriginSection = () => {
   });
 
   return (
-    <section ref={sectionRef} id="about" className="section-light section-padding scroll-mt-20 overflow-hidden" aria-labelledby="about-heading">
-      <div className="container mx-auto px-6">
+    <section ref={sectionRef} id="about" className="relative section-light section-padding scroll-mt-24 overflow-hidden" aria-labelledby="about-heading">
+      {/* 3D Parallax Scrolling Background */}
+      <ParallaxBackground variant="light" />
+      <div className="container mx-auto px-6 relative z-10">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           {/* Text Content */}
           <div>

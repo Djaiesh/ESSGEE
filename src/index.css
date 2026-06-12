@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700;800&family=Manrope:wght@300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700;1,800&family=Inter:wght@300;400;500;600;700&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -46,7 +46,7 @@
     --glass-bg: 220 14% 12% / 0.85;
     --glass-border: 0 0% 100% / 0.1;
     --section-spacing: clamp(80px, 12vw, 160px);
-    --nav-height: 72px;
+    --nav-height: 96px;
   }
 }
 
@@ -105,15 +105,28 @@
   /* ── Navigation ── */
   .glass-nav {
     @apply border-b transition-all duration-300;
-    background: hsla(220, 14%, 12%, 0.85);
-    backdrop-filter: blur(12px);
-    border-color: hsla(0, 0%, 100%, 0.1);
+    background: hsla(220, 14%, 12%, 0.88);
+    backdrop-filter: blur(16px);
+    border-color: hsla(0, 0%, 100%, 0.06);
   }
 
   .glass-nav-transparent {
     @apply border-b transition-all duration-300;
     background: transparent;
     border-color: transparent;
+  }
+
+  .nav-link-underline {
+    @apply relative py-1;
+  }
+
+  .nav-link-underline::after {
+    content: '';
+    @apply absolute w-full h-[1.5px] bottom-0 left-0 bg-vivid-amber scale-x-0 origin-right transition-transform duration-300 ease-out;
+  }
+
+  .group:hover .nav-link-underline::after {
+    @apply scale-x-100 origin-left;
   }
 
   /* ── Sections ── */
@@ -124,16 +137,37 @@
 
   .section-dark {
     background-color: hsl(var(--slate-navy));
+    background-image:
+      radial-gradient(ellipse 90% 60% at 8% 15%, hsla(210, 100%, 40%, 0.22) 0%, transparent 65%),
+      radial-gradient(ellipse 70% 80% at 92% 80%, hsla(24, 100%, 50%, 0.16) 0%, transparent 65%),
+      radial-gradient(ellipse 60% 50% at 50% 50%, hsla(176, 88%, 34%, 0.12) 0%, transparent 55%),
+      radial-gradient(ellipse 40% 60% at 75% 25%, hsla(210, 100%, 50%, 0.10) 0%, transparent 60%),
+      radial-gradient(ellipse 50% 40% at 20% 75%, hsla(24, 100%, 55%, 0.08) 0%, transparent 60%),
+      linear-gradient(135deg, transparent 0%, hsla(210, 100%, 40%, 0.08) 30%, transparent 50%, hsla(24, 100%, 50%, 0.06) 75%, transparent 100%);
     color: white;
   }
 
   .section-light {
     background-color: hsl(var(--main-space));
+    background-image:
+      radial-gradient(ellipse 80% 60% at 5% 10%, hsla(210, 100%, 40%, 0.12) 0%, transparent 65%),
+      radial-gradient(ellipse 70% 70% at 95% 85%, hsla(24, 100%, 50%, 0.09) 0%, transparent 65%),
+      radial-gradient(ellipse 60% 50% at 50% 45%, hsla(176, 88%, 34%, 0.07) 0%, transparent 55%),
+      radial-gradient(ellipse 40% 50% at 80% 20%, hsla(210, 100%, 50%, 0.06) 0%, transparent 60%),
+      radial-gradient(ellipse 50% 40% at 15% 80%, hsla(24, 100%, 55%, 0.05) 0%, transparent 60%),
+      linear-gradient(160deg, transparent 0%, hsla(210, 100%, 40%, 0.04) 25%, transparent 45%, hsla(24, 100%, 50%, 0.03) 70%, transparent 100%);
     color: hsl(var(--slate-navy));
   }
 
   .section-cream {
     background-color: #f7f8f9;
+    background-image:
+      radial-gradient(ellipse 90% 60% at 90% 8%, hsla(176, 88%, 34%, 0.12) 0%, transparent 65%),
+      radial-gradient(ellipse 70% 70% at 8% 90%, hsla(24, 100%, 50%, 0.09) 0%, transparent 65%),
+      radial-gradient(ellipse 50% 50% at 55% 45%, hsla(210, 100%, 40%, 0.07) 0%, transparent 55%),
+      radial-gradient(ellipse 40% 50% at 25% 20%, hsla(176, 88%, 40%, 0.06) 0%, transparent 60%),
+      radial-gradient(ellipse 50% 40% at 70% 75%, hsla(210, 100%, 50%, 0.05) 0%, transparent 60%),
+      linear-gradient(145deg, transparent 0%, hsla(176, 88%, 34%, 0.04) 30%, transparent 50%, hsla(210, 100%, 40%, 0.03) 75%, transparent 100%);
     color: hsl(var(--slate-navy));
   }
 
@@ -145,14 +179,15 @@
 
   /* ── Premium Cards (Editorial Minimal) ── */
   .card-lift {
-    @apply transition-all duration-500 ease-out border border-border bg-white;
-    box-shadow: 0 4px 20px -12px hsla(220, 14%, 12%, 0.05);
+    @apply border border-border/40 bg-white;
+    transition: all 500ms cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow: 0 4px 30px -10px rgba(0, 0, 0, 0.03);
   }
 
   .card-lift:hover {
-    transform: translateY(-6px);
-    border-color: hsl(var(--slate-navy) / 0.3);
-    box-shadow: 0 20px 40px -16px hsla(220, 14%, 12%, 0.12);
+    transform: translateY(-5px);
+    border-color: hsl(var(--vivid-amber) / 0.3);
+    box-shadow: 0 24px 48px -12px rgba(240, 74, 0, 0.08);
   }
 
   /* ── Links / Underline ── */
@@ -219,11 +254,30 @@
 
   /* ── Counter ── */
   .counter-value {
-    @apply font-display font-bold;
+    @apply font-display font-bold bg-clip-text text-transparent;
+    background-image: linear-gradient(135deg, hsl(var(--vivid-amber)) 0%, #ffbe3b 100%);
     font-size: clamp(2.5rem, 5vw, 4rem);
     line-height: 1;
-    color: hsl(var(--vivid-amber));
+    filter: drop-shadow(0 2px 8px rgba(240, 74, 0, 0.2));
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), filter 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: transform, filter;
   }
+
+  .counter-value:hover {
+    transform: scale(1.08);
+    filter: drop-shadow(0 4px 16px rgba(240, 74, 0, 0.45));
+  }
+
+  @keyframes counter-pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.08); filter: drop-shadow(0 4px 16px rgba(240, 74, 0, 0.45)); }
+    100% { transform: scale(1); }
+  }
+
+  .animate-counter-pulse {
+    animation: counter-pulse 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+  }
+
 
   .contact-link {
     @apply flex items-center gap-4 text-white/70 transition-all duration-300 hover:translate-x-1 hover:text-white;

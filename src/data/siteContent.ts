@@ -1,3 +1,5 @@
+import capabilityStatement from "@/assets/ESSGEE Capability Statement.pdf";
+
 export const site = {
   name: "ESSGEE Projects",
   shortName: "ESSGEE",
@@ -7,9 +9,9 @@ export const site = {
   email: "satya.gady@essgee.pro",
   phoneDisplay: "+61 4 0119 0115",
   phoneHref: "tel:+61401190115",
-  location: "Perth, Western Australia",
+  location: "Sydney, Australia",
   linkedin: "https://www.linkedin.com/in/satya-gady",
-  capabilityStatement: "/ESSGEE-Capability-Statement.pdf",
+  capabilityStatement: capabilityStatement,
   socialImage: "/essgee-social.jpeg",
 };
 

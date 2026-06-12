@@ -4,6 +4,7 @@ import Seo from "@/components/Seo";
 import { ArrowRight } from "lucide-react";
 import { insights } from "@/data/siteContent";
 import insightsHero from "@/assets/insights-hero.png";
+import ParallaxBackground from "@/components/ParallaxBackground";
 
 const InsightsPage = () => (
   <>
@@ -23,8 +24,9 @@ const InsightsPage = () => (
       </section>
 
       {/* Grid of articles */}
-      <section className="section-light section-padding">
-        <div className="container mx-auto px-6 grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <section className="relative overflow-hidden section-light section-padding">
+        <ParallaxBackground variant="light" />
+        <div className="container mx-auto px-6 grid md:grid-cols-2 lg:grid-cols-3 gap-8 relative z-10">
           {insights.map((article, index) => (
             <SectionReveal key={article.title} delay={index * 0.06}>
               <article className="card-lift group p-8 rounded-xl h-full flex flex-col">

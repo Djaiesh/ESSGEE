@@ -17,8 +17,8 @@ const jsonLd = {
   "url": site.url,
   "address": {
     "@type": "PostalAddress",
-    "addressLocality": "Perth",
-    "addressRegion": "WA",
+    "addressLocality": "Sydney",
+    "addressRegion": "NSW",
     "addressCountry": "AU"
   },
   "founder": {

@@ -9,6 +9,7 @@ import defenceImg from "@/assets/sector-defence.jpg";
 import urbanImg from "@/assets/sector-urban.png";
 
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
+import ParallaxBackground from "./ParallaxBackground";
 
 const sectorSlides = [
   { title: "Infrastructure", image: transportImg, href: "/sectors#infrastructure" },
@@ -38,8 +39,10 @@ const SectorsSection = () => {
   });
 
   return (
-    <section ref={sectionRef} id="sectors" className="section-dark section-padding bg-slate-navy overflow-hidden" aria-labelledby="sectors-heading">
-      <div className="container mx-auto px-6">
+    <section ref={sectionRef} id="sectors" className="relative section-dark section-padding bg-slate-navy overflow-hidden" aria-labelledby="sectors-heading">
+      {/* 3D Parallax Scrolling Background */}
+      <ParallaxBackground variant="dark" />
+      <div className="container mx-auto px-6 relative z-10">
         
         <div className="sectors-reveal">
           <p className="text-micro uppercase tracking-[0.15em] text-vivid-amber mb-4 text-center">Sector Experience</p>

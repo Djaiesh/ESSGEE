@@ -3,6 +3,7 @@ import emailjs from "@emailjs/browser";
 import { Linkedin, Mail, MapPin, Phone } from "lucide-react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { site } from "@/data/siteContent";
+import ParallaxBackground from "./ParallaxBackground";
 
 const ConnectSection = () => {
   const emailForm = useRef<HTMLFormElement>(null);
@@ -44,8 +45,9 @@ const ConnectSection = () => {
   const inputClasses = "w-full rounded-lg border border-white/10 bg-white/5 px-4 py-3 text-white placeholder:text-white/30 transition-all duration-300 focus:border-teal-accent focus:bg-white/10 focus:outline-none focus:ring-2 focus:ring-teal-accent/30";
 
   return (
-    <section ref={sectionRef} id="connect" className="section-dark section-padding overflow-hidden" aria-labelledby="connect-heading">
-      <div className="container mx-auto px-6">
+    <section ref={sectionRef} id="connect" className="relative section-dark section-padding overflow-hidden" aria-labelledby="connect-heading">
+      <ParallaxBackground variant="dark" />
+      <div className="container mx-auto px-6 relative z-10">
         <p className="connect-title text-micro uppercase tracking-[0.2em] text-teal-accent mb-4">Direct Enquiry</p>
         <h2 id="connect-heading" className="connect-title text-h2 text-white mb-4">Let's Start a Conversation</h2>
         <p className="connect-title text-body-lg text-white/60 mb-14">Every enquiry is handled directly by Satya Gady. No intermediaries, no delays.</p>

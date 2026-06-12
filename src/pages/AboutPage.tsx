@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import { approach, values } from "@/data/siteContent";
 import { Download, Search, ClipboardCheck, Compass, Cog, RefreshCw, Heart, Handshake, Wrench, Leaf } from "lucide-react";
 import aboutBg from "@/assets/about-bg.jpg";
+import ParallaxBackground from "@/components/ParallaxBackground";
 
 const approachIcons = [Search, ClipboardCheck, Compass, Cog, RefreshCw];
 const valueIcons = [Heart, Handshake, Wrench, Leaf];
@@ -27,8 +28,9 @@ const AboutPage = () => (
       </section>
 
       {/* Our Story */}
-      <section className="section-light section-padding">
-        <div className="container mx-auto px-6 max-w-4xl">
+      <section className="relative overflow-hidden section-light section-padding">
+        <ParallaxBackground variant="light" />
+        <div className="container mx-auto px-6 max-w-4xl relative z-10">
           <SectionReveal>
             <p className="text-micro uppercase tracking-[0.2em] text-deep-azure mb-4 text-center">Our Story</p>
             <h2 className="text-h2 text-slate-navy text-center mb-8">Why ESSGEE Projects Exists</h2>
@@ -42,8 +44,9 @@ const AboutPage = () => (
       </section>
 
       {/* Our Purpose */}
-      <section className="section-dark py-20">
-        <div className="container mx-auto px-6 max-w-3xl text-center">
+      <section className="relative overflow-hidden section-dark py-20">
+        <ParallaxBackground variant="dark" />
+        <div className="container mx-auto px-6 max-w-3xl text-center relative z-10">
           <SectionReveal>
             <p className="text-micro uppercase tracking-[0.2em] text-vivid-amber mb-4">Our Purpose</p>
             <h2 className="text-h2 text-white mb-8">Our Mission</h2>
@@ -55,8 +58,9 @@ const AboutPage = () => (
       </section>
 
       {/* Our Approach */}
-      <section className="section-cream section-padding">
-        <div className="container mx-auto px-6">
+      <section className="relative overflow-hidden section-cream section-padding">
+        <ParallaxBackground variant="light" />
+        <div className="container mx-auto px-6 relative z-10">
           <SectionReveal>
             <p className="text-micro uppercase tracking-[0.2em] text-deep-azure mb-4 text-center">Our Approach</p>
             <h2 className="text-h2 text-slate-navy text-center mb-16">How We Work</h2>
@@ -82,8 +86,9 @@ const AboutPage = () => (
       </section>
 
       {/* Our Values */}
-      <section className="section-light section-padding">
-        <div className="container mx-auto px-6">
+      <section className="relative overflow-hidden section-light section-padding">
+        <ParallaxBackground variant="light" />
+        <div className="container mx-auto px-6 relative z-10">
           <SectionReveal>
             <p className="text-micro uppercase tracking-[0.2em] text-teal-accent mb-4 text-center">Our Values</p>
             <h2 className="text-h2 text-slate-navy text-center mb-16">What Guides Us</h2>

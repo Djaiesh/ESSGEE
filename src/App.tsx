@@ -12,6 +12,7 @@ import { Preloader } from "./components/Preloader";
 import { ScrollProgress } from "./components/ScrollProgress";
 import ScrollToHash from "./components/ScrollToHash";
 import Navbar from "./components/Navbar";
+import CustomCursor from "./components/CustomCursor";
 
 const AboutPage = lazy(() => import("./pages/AboutPage"));
 const ServicesPage = lazy(() => import("./pages/ServicesPage"));
@@ -62,6 +63,7 @@ const AppContent = () => {
     <>
       <ScrollToHash />
       <ScrollProgress />
+      <CustomCursor />
       {!preloaderComplete && <Preloader onComplete={completePreloader} />}
       <Navbar />
       <SmoothScroll>
