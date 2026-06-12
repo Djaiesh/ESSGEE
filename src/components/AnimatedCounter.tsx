@@ -29,7 +29,7 @@ const AnimatedCounter = ({ value, prefix = "", suffix = "", decimals = 0 }: Prop
             const progress = Math.min(elapsed / duration, 1);
             const eased = 1 - Math.pow(1 - progress, 3);
             setCount(eased * value);
-            
+
             if (progress < 1) {
               requestAnimationFrame(animate);
             } else {
@@ -49,9 +49,8 @@ const AnimatedCounter = ({ value, prefix = "", suffix = "", decimals = 0 }: Prop
   return (
     <span
       ref={ref}
-      className={`counter-value inline-block ${
-        isCompleted ? "animate-counter-pulse" : ""
-      }`}
+      className={`counter-value inline-block ${isCompleted ? "animate-counter-pulse" : ""
+        }`}
     >
       {prefix}
       {count.toFixed(decimals)}
