@@ -121,25 +121,27 @@ export const servicePillars = [
     ],
   },
   {
-    id: "delivery",
-    title: "Delivery",
+    id: "project-development",
+    title: "Project Development",
+    summary: "Supporting the pre-execution phases, including tendering, procurement, and planning.",
+    items: [
+      "Tender Strategy Development",
+      "Tender Management",
+      "Bid Coordination",
+      "Bid Proposal Development",
+      "Estimation Support",
+      "Planning & Programming",
+      "Procurement Planning",
+      "Design Coordination",
+      "Risk & Opportunity Management",
+      "Partnering and Joint Venture Support",
+    ],
+  },
+  {
+    id: "project-delivery",
+    title: "Project Delivery",
     summary: "Supporting successful project and operational outcomes across the entire lifecycle.",
     subGroups: [
-      {
-        title: "Tendering & Pre-Contract Management",
-        items: [
-          "Tender Strategy Development",
-          "Tender Management",
-          "Bid Coordination",
-          "Bid Proposal Development",
-          "Estimation Support",
-          "Planning & Programming",
-          "Procurement Planning",
-          "Design Coordination",
-          "Risk & Opportunity Management",
-          "Partnering and Joint Venture Support",
-        ],
-      },
       {
         title: "Project Engineering & Project Management",
         items: [
@@ -182,10 +184,16 @@ export const homeServiceCards = [
     href: "/services#governance",
   },
   {
-    id: "delivery",
-    title: "Delivery",
+    id: "project-development",
+    title: "Project Development",
+    description: "Expert support through tendering, procurement, estimating, and pre-contract phases.",
+    href: "/services#project-development",
+  },
+  {
+    id: "project-delivery",
+    title: "Project Delivery",
     description: "Providing project, program, portfolio and operational management support to deliver successful outcomes.",
-    href: "/services#delivery",
+    href: "/services#project-delivery",
   },
 ];
 
@@ -193,32 +201,32 @@ export const sectors = [
   {
     id: "infrastructure",
     title: "Infrastructure",
-    description: "Supporting major infrastructure programs and projects from concept development through delivery and operational maturity.",
+    description: "ESSGEE Projects supports major infrastructure programs and projects from early concept development through procurement, delivery and operational maturity. Our experience spans roads, rail, bridges, tunnels, water infrastructure and public utilities across Australia and the Asia-Pacific region. We provide strategic advisory, governance frameworks and delivery leadership to help clients navigate the complexity of large-scale infrastructure investments and achieve sustainable, long-term outcomes.",
   },
   {
     id: "construction",
     title: "Construction",
-    description: "Providing governance, planning and delivery support across civil, commercial and industrial construction environments.",
+    description: "We provide governance, planning and delivery support across civil, commercial and industrial construction environments. From pre-construction strategy and tender management through to project controls, contract administration and completion, ESSGEE Projects brings practical experience to every phase of the construction lifecycle. Our advisory services help contractors, developers and asset owners strengthen project systems, improve delivery performance and manage risk effectively.",
   },
   {
     id: "property-development",
     title: "Property & Development",
-    description: "Supporting development opportunities through feasibility, planning, governance and delivery readiness.",
+    description: "ESSGEE Projects supports property and development opportunities through feasibility assessment, project planning, governance and delivery readiness. Whether it is residential, commercial, mixed-use or master-planned communities, we help developers and investors establish the structures, systems and controls needed to move from concept to completion. Our advisory approach bridges the gap between development strategy and on-the-ground execution.",
   },
   {
     id: "energy-utilities",
     title: "Energy & Utilities",
-    description: "Supporting traditional and emerging energy, utilities and infrastructure sectors.",
+    description: "We bring advisory and delivery experience to both traditional and emerging energy sectors, including renewables, power generation, transmission and distribution networks. ESSGEE Projects supports energy and utilities organisations with project development, governance, procurement strategy and delivery management. Our practical, experience-based approach helps clients navigate regulatory complexity, manage capital programs and achieve operational readiness across critical energy infrastructure.",
   },
   {
     id: "industrial-resources",
     title: "Industrial & Resources",
-    description: "Providing advisory and delivery support for industrial facilities, operational environments and resource-related developments.",
+    description: "ESSGEE Projects provides strategic advisory and delivery support for industrial facilities, mining operations, processing plants and resource-related developments. We assist organisations with project governance, capital project delivery, operational readiness and performance improvement across complex industrial environments. Our experience covers the full project lifecycle, helping clients balance commercial objectives with safe, efficient and sustainable delivery outcomes.",
   },
   {
     id: "government",
     title: "Government & Public Sector",
-    description: "Supporting governance, assurance, program management and organisational capability development.",
+    description: "We support government agencies and public sector organisations with governance, assurance, program management and organisational capability development. ESSGEE Projects brings experience in establishing PMO and PfMO functions, developing delivery frameworks and strengthening portfolio governance across state and federal programs. Our advisory services help public sector clients improve accountability, decision-making and the sustainable delivery of services and infrastructure for communities.",
   },
 ];
 

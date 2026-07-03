@@ -89,12 +89,15 @@ const Hero = () => {
       
       {/* Layer 1: Background */}
       <div ref={bgRef} className="absolute inset-0 w-full h-full">
+        {/* @ts-ignore */}
         <video 
           src={heroVideo} 
           autoPlay 
           loop 
           muted 
           playsInline
+          fetchpriority="high"
+          preload="auto"
           className="w-full h-full object-cover opacity-90 mix-blend-luminosity" 
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-black/5 to-black/25" />

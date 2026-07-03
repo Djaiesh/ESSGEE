@@ -3,7 +3,7 @@ import SectionReveal from "@/components/SectionReveal";
 import Seo from "@/components/Seo";
 import { ArrowRight } from "lucide-react";
 import { insights } from "@/data/siteContent";
-import insightsHero from "@/assets/insights-hero.png";
+import insightsHero from "@/assets/insights_realistic.png";
 import ParallaxBackground from "@/components/ParallaxBackground";
 
 const InsightsPage = () => (
@@ -12,7 +12,7 @@ const InsightsPage = () => (
     <main>
       {/* Hero */}
       <section className="relative h-[50vh] min-h-[400px] flex items-center justify-center overflow-hidden">
-        <img src={insightsHero} alt="" className="absolute inset-0 w-full h-full object-cover" />
+        <img src={insightsHero} alt="" className="absolute inset-0 w-full h-full object-cover" fetchpriority="high" />
         <div className="absolute inset-0 bg-slate-navy/85" />
         <div className="relative z-10 text-center px-6">
           <p className="text-micro uppercase tracking-[0.2em] text-teal-accent mb-4">Knowledge</p>

@@ -26,7 +26,8 @@ const NAV_LINKS: NavItem[] = [
     subs: [
       { label: "Strategy", href: "/services#strategy" },
       { label: "Governance", href: "/services#governance" },
-      { label: "Delivery", href: "/services#delivery" },
+      { label: "Project Development", href: "/services#project-development" },
+      { label: "Project Delivery", href: "/services#project-delivery" },
     ],
   },
   {

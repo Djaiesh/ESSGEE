@@ -1,5 +1,5 @@
 import { useRef } from "react";
-import aboutBg from "@/assets/about-bg.jpg";
+import aboutBg from "@/assets/about_realistic.png";
 import { Layers, Compass, Leaf, BarChart3 } from "lucide-react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { useParallax } from "@/hooks/useParallax";

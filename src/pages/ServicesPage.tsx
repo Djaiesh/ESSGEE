@@ -3,30 +3,34 @@ import SectionReveal from "@/components/SectionReveal";
 import Seo from "@/components/Seo";
 import { Link } from "react-router-dom";
 import { servicePillars } from "@/data/siteContent";
-import { Lightbulb, ShieldCheck, Rocket, CheckCircle2 } from "lucide-react";
+import { Lightbulb, ShieldCheck, Rocket, Briefcase, CheckCircle2 } from "lucide-react";
 import capabilitiesHero from "@/assets/capabilities-hero.jpg";
 import ParallaxBackground from "@/components/ParallaxBackground";
 
-import strategyImg from "@/assets/cap-bid-strategy.png";
-import governanceImg from "@/assets/cap-governance.png";
-import deliveryImg from "@/assets/cap-delivery-leadership.png";
+import strategyImg from "@/assets/strategy_realistic.png";
+import governanceImg from "@/assets/governance.jpg";
+import developmentImg from "@/assets/project_development.jpg";
+import deliveryImg from "@/assets/project_delivery.jpg";
 
 const pillarIcons: Record<string, any> = {
   strategy: Lightbulb,
   governance: ShieldCheck,
-  delivery: Rocket,
+  "project-development": Briefcase,
+  "project-delivery": Rocket,
 };
 
 const pillarColors: Record<string, { bg: string; text: string; border: string }> = {
   strategy: { bg: "bg-deep-azure/10", text: "text-deep-azure", border: "border-deep-azure/20" },
   governance: { bg: "bg-teal-accent/10", text: "text-teal-accent", border: "border-teal-accent/20" },
-  delivery: { bg: "bg-vivid-amber/10", text: "text-vivid-amber", border: "border-vivid-amber/20" },
+  "project-development": { bg: "bg-vivid-amber/10", text: "text-vivid-amber", border: "border-vivid-amber/20" },
+  "project-delivery": { bg: "bg-deep-azure/10", text: "text-deep-azure", border: "border-deep-azure/20" },
 };
 
 const pillarImages: Record<string, string> = {
   strategy: strategyImg,
   governance: governanceImg,
-  delivery: deliveryImg,
+  "project-development": developmentImg,
+  "project-delivery": deliveryImg,
 };
 
 const ServicesPage = () => (
@@ -35,7 +39,8 @@ const ServicesPage = () => (
     <main>
       {/* Hero */}
       <section className="relative h-[50vh] min-h-[400px] flex items-center justify-center overflow-hidden">
-        <img src={capabilitiesHero} alt="" className="absolute inset-0 w-full h-full object-cover" />
+        {/* @ts-ignore */}
+        <img src={capabilitiesHero} alt="" className="absolute inset-0 w-full h-full object-cover" fetchpriority="high" />
         <div className="absolute inset-0 bg-slate-navy/85" />
         <div className="relative z-10 text-center px-6">
           <p className="text-micro uppercase tracking-[0.2em] text-vivid-amber mb-4">What We Do</p>
@@ -64,7 +69,7 @@ const ServicesPage = () => (
                 
                 {/* Image Column (Sticky on Desktop) */}
                 <div className={`lg:col-span-5 rounded-2xl overflow-hidden shadow-xl aspect-[4/3] lg:sticky lg:top-28 ${!isEven ? "lg:order-2" : ""}`}>
-                  <SectionReveal>
+                  <SectionReveal className="w-full h-full">
                     <img src={pillarImages[pillar.id]} alt={pillar.title} className="w-full h-full object-cover" loading="lazy" />
                   </SectionReveal>
                 </div>

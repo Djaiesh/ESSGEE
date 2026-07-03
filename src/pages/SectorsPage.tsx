@@ -4,12 +4,12 @@ import Seo from "@/components/Seo";
 import { Link } from "react-router-dom";
 import { sectors, site } from "@/data/siteContent";
 import { Download } from "lucide-react";
-import transportImg from "@/assets/sector-transport.jpg";
-import urbanImg from "@/assets/sector-urban.png";
-import socialImg from "@/assets/sector-social.jpg";
-import waterImg from "@/assets/sector-water.jpg";
-import resourcesImg from "@/assets/sector-resources.jpg";
-import defenceImg from "@/assets/sector-defence.jpg";
+import transportImg from "@/assets/sector-transport-new.png";
+import urbanImg from "@/assets/sector-construction.png";
+import socialImg from "@/assets/sector-property.png";
+import waterImg from "@/assets/sector-energy.png";
+import resourcesImg from "@/assets/sector-resources-new.png";
+import defenceImg from "@/assets/sector-government.png";
 import ParallaxBackground from "@/components/ParallaxBackground";
 
 const sectorImages: Record<string, string> = {
@@ -27,7 +27,7 @@ const SectorsPage = () => (
     <main>
       {/* Hero */}
       <section className="relative h-[50vh] min-h-[400px] flex items-center justify-center overflow-hidden">
-        <img src={transportImg} alt="" className="absolute inset-0 w-full h-full object-cover" />
+        <img src={transportImg} alt="" className="absolute inset-0 w-full h-full object-cover" fetchpriority="high" />
         <div className="absolute inset-0 bg-slate-navy/85" />
         <div className="relative z-10 text-center px-6">
           <p className="text-micro uppercase tracking-[0.2em] text-vivid-amber mb-4">Sector Experience</p>

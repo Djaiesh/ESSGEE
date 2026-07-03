@@ -14,12 +14,14 @@ const ScrollToHash = () => {
     const tryScroll = () => {
       const element = document.getElementById(id);
       if (element) {
-        const lenisInstance = (window as any).lenis;
-        if (lenisInstance) {
-          lenisInstance.scrollTo(element, { offset: -100, duration: 1.2 });
-        } else {
-          element.scrollIntoView({ behavior: "smooth", block: "start" });
-        }
+        setTimeout(() => {
+          const lenisInstance = (window as any).lenis;
+          if (lenisInstance) {
+            lenisInstance.scrollTo(element, { offset: -100, duration: 1.2 });
+          } else {
+            element.scrollIntoView({ behavior: "smooth", block: "start" });
+          }
+        }, 300); // 300ms delay to ensure page transitions and layout are fully settled
         return true;
       }
       return false;

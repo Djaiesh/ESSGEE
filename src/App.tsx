@@ -13,6 +13,7 @@ import { ScrollProgress } from "./components/ScrollProgress";
 import ScrollToHash from "./components/ScrollToHash";
 import Navbar from "./components/Navbar";
 import CustomCursor from "./components/CustomCursor";
+import ErrorBoundary from "./components/ErrorBoundary";
 
 const AboutPage = lazy(() => import("./pages/AboutPage"));
 const ServicesPage = lazy(() => import("./pages/ServicesPage"));
@@ -67,18 +68,20 @@ const AppContent = () => {
       {!preloaderComplete && <Preloader onComplete={completePreloader} />}
       <Navbar />
       <SmoothScroll>
-        <AnimatePresence mode="wait">
-          <Routes location={location} key={location.pathname}>
-            <Route path="/" element={<PageWrapper><Suspense fallback={suspenseFallback}><Index /></Suspense></PageWrapper>} />
-            <Route path="/about" element={<PageWrapper><Suspense fallback={suspenseFallback}><AboutPage /></Suspense></PageWrapper>} />
-            <Route path="/services" element={<PageWrapper><Suspense fallback={suspenseFallback}><ServicesPage /></Suspense></PageWrapper>} />
-            <Route path="/sectors" element={<PageWrapper><Suspense fallback={suspenseFallback}><SectorsPage /></Suspense></PageWrapper>} />
-            <Route path="/founder" element={<PageWrapper><Suspense fallback={suspenseFallback}><FounderPage /></Suspense></PageWrapper>} />
-            <Route path="/insights" element={<PageWrapper><Suspense fallback={suspenseFallback}><InsightsPage /></Suspense></PageWrapper>} />
-            <Route path="/contact" element={<PageWrapper><Suspense fallback={suspenseFallback}><ContactPage /></Suspense></PageWrapper>} />
-            <Route path="*" element={<PageWrapper><Suspense fallback={suspenseFallback}><NotFound /></Suspense></PageWrapper>} />
-          </Routes>
-        </AnimatePresence>
+        <ErrorBoundary>
+          <AnimatePresence mode="wait">
+            <Routes location={location} key={location.pathname}>
+              <Route path="/" element={<PageWrapper><Suspense fallback={suspenseFallback}><Index /></Suspense></PageWrapper>} />
+              <Route path="/about" element={<PageWrapper><Suspense fallback={suspenseFallback}><AboutPage /></Suspense></PageWrapper>} />
+              <Route path="/services" element={<PageWrapper><Suspense fallback={suspenseFallback}><ServicesPage /></Suspense></PageWrapper>} />
+              <Route path="/sectors" element={<PageWrapper><Suspense fallback={suspenseFallback}><SectorsPage /></Suspense></PageWrapper>} />
+              <Route path="/founder" element={<PageWrapper><Suspense fallback={suspenseFallback}><FounderPage /></Suspense></PageWrapper>} />
+              <Route path="/insights" element={<PageWrapper><Suspense fallback={suspenseFallback}><InsightsPage /></Suspense></PageWrapper>} />
+              <Route path="/contact" element={<PageWrapper><Suspense fallback={suspenseFallback}><ContactPage /></Suspense></PageWrapper>} />
+              <Route path="*" element={<PageWrapper><Suspense fallback={suspenseFallback}><NotFound /></Suspense></PageWrapper>} />
+            </Routes>
+          </AnimatePresence>
+        </ErrorBoundary>
       </SmoothScroll>
     </>
   );

@@ -1,6 +1,6 @@
 import Footer from "@/components/Footer";
 import ConnectSection from "@/components/ConnectSection";
-import connectHero from "@/assets/connect-hero.jpg";
+import connectHero from "@/assets/contact_realistic.png";
 import Seo from "@/components/Seo";
 
 const ContactPage = () => (
@@ -13,7 +13,7 @@ const ContactPage = () => (
     <main>
       {/* Hero */}
       <section className="relative h-[50vh] min-h-[400px] flex items-center justify-center overflow-hidden">
-        <img src={connectHero} alt="" className="absolute inset-0 w-full h-full object-cover" />
+        <img src={connectHero} alt="" className="absolute inset-0 w-full h-full object-cover" fetchpriority="high" />
         <div className="absolute inset-0 bg-slate-navy/85" />
         <div className="relative z-10 text-center px-6">
           <h1 className="text-hero text-white">Let's Start a Conversation</h1>

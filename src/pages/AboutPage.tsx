@@ -4,7 +4,7 @@ import Seo from "@/components/Seo";
 import { Link } from "react-router-dom";
 import { approach, values } from "@/data/siteContent";
 import { Download, Search, ClipboardCheck, Compass, Cog, RefreshCw, Heart, Handshake, Wrench, Leaf } from "lucide-react";
-import aboutBg from "@/assets/about-bg.jpg";
+import aboutBg from "@/assets/about_realistic.png";
 import ParallaxBackground from "@/components/ParallaxBackground";
 
 const approachIcons = [Search, ClipboardCheck, Compass, Cog, RefreshCw];
@@ -16,7 +16,8 @@ const AboutPage = () => (
     <main>
       {/* Hero */}
       <section className="relative h-[50vh] min-h-[400px] flex items-center justify-center overflow-hidden">
-        <img src={aboutBg} alt="" className="absolute inset-0 w-full h-full object-cover" />
+        {/* @ts-ignore */}
+        <img src={aboutBg} alt="" className="absolute inset-0 w-full h-full object-cover" fetchpriority="high" />
         <div className="absolute inset-0 bg-slate-navy/85" />
         <div className="relative z-10 text-center px-6">
           <p className="text-micro uppercase tracking-[0.2em] text-vivid-amber mb-4">About Us</p>

@@ -1,7 +1,7 @@
 import { useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
-import capImg from "@/assets/capabilities-hero.jpg";
-import { Lightbulb, ShieldCheck, Rocket } from "lucide-react";
+import capImg from "@/assets/cap-hero.png";
+import { Lightbulb, ShieldCheck, Rocket, Briefcase } from "lucide-react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
@@ -14,7 +14,8 @@ gsap.registerPlugin(ScrollTrigger);
 const iconMap: Record<string, any> = {
   strategy: Lightbulb,
   governance: ShieldCheck,
-  delivery: Rocket,
+  "project-development": Briefcase,
+  "project-delivery": Rocket,
 };
 
 const CapabilitiesSection = () => {
@@ -104,7 +105,7 @@ const CapabilitiesSection = () => {
           </div>
         </div>
 
-        <div ref={gridRef} className="grid sm:grid-cols-1 lg:grid-cols-3 gap-6">
+        <div ref={gridRef} className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {homeServiceCards.map((card) => {
             const Icon = iconMap[card.id];
             return (

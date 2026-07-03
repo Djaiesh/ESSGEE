@@ -24,6 +24,7 @@ dist-ssr
 *.sw?
  
 *.txt
+!public/robots.txt
 *.bak
 
 # Environment Variables

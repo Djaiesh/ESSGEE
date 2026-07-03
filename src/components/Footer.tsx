@@ -12,11 +12,24 @@ const navigation = [
   ["Contact", "/contact"],
 ];
 
+const companies = [
+  "Leighton Contractors",
+  "UGL",
+  "Downer",
+  "Transgrid",
+  "Ausgrid",
+  "Western Power",
+  "Origin Energy",
+  "AWS",
+  "Whittens",
+  "M+W Group",
+];
+
 const Footer = () => (
   <footer className="section-dark border-t border-white/10" role="contentinfo">
     <div className="container mx-auto px-6 py-14">
-      <div className="grid gap-10 md:grid-cols-12">
-        <div className="md:col-span-5">
+      <div className="grid gap-8 md:grid-cols-12">
+        <div className="md:col-span-4 lg:col-span-4">
           <Link to="/" className="inline-flex items-center gap-4">
             <img src={logo} alt="" className="h-20 w-20 rounded-lg object-cover border border-white/10 shadow-lg" />
             <span className="font-display text-2xl font-bold tracking-wide text-vivid-amber">ESSGEE PROJECTS</span>
@@ -25,11 +38,11 @@ const Footer = () => (
           <p className="mt-3 text-sm font-semibold text-vivid-amber italic">Sustainability Through Strategy!</p>
           <a href={site.capabilityStatement} download="ESSGEE Capability Statement.pdf" className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-teal-accent hover:text-white transition-colors"><Download className="h-4 w-4" />Download Capability Statement</a>
         </div>
-        <div className="md:col-span-3">
+        <div className="md:col-span-2 lg:col-span-2">
           <p className="mb-4 text-xs uppercase tracking-[0.2em] text-white/35">Navigation</p>
           <ul className="space-y-2">{navigation.map(([label, href]) => <li key={href}><Link to={href} className="text-sm text-white/55 transition-colors hover:text-teal-accent">{label}</Link></li>)}</ul>
         </div>
-        <div className="md:col-span-4">
+        <div className="md:col-span-3 lg:col-span-3">
           <p className="mb-4 text-xs uppercase tracking-[0.2em] text-white/35">Contact</p>
           <ul className="space-y-3 text-sm text-white/55">
             <li><a className="flex gap-3 hover:text-white" href={`mailto:${site.email}`}><Mail className="h-4 w-4 text-teal-accent" />{site.email}</a></li>
@@ -38,8 +51,22 @@ const Footer = () => (
             <li><a className="flex gap-3 hover:text-white" href={site.linkedin} target="_blank" rel="noopener noreferrer"><Linkedin className="h-4 w-4 text-teal-accent" />LinkedIn</a></li>
           </ul>
         </div>
+        <div className="md:col-span-3 lg:col-span-3">
+          <p className="mb-4 text-xs uppercase tracking-[0.2em] text-vivid-amber">Trusted By</p>
+          <p className="text-xs text-white/50 mb-4 leading-relaxed">
+            Experience includes projects with organisations such as:
+          </p>
+          <div className="flex flex-wrap gap-2">
+            {companies.map((company, index) => (
+              <span key={index} className="px-3 py-1.5 rounded-md bg-white/5 border border-white/10 text-xs font-medium text-white/60 hover:bg-white/10 hover:text-white hover:border-white/20 transition-all duration-300 cursor-default">
+                {company}
+              </span>
+            ))}
+          </div>
+        </div>
       </div>
-      <div className="mt-10 border-t border-white/10 pt-6 text-xs text-white/30">&copy; {new Date().getFullYear()} ESSGEE Projects. All rights reserved.</div>
+
+      <div className="mt-12 border-t border-white/10 pt-6 text-xs text-white/30">&copy; {new Date().getFullYear()} ESSGEE Projects. All rights reserved.</div>
     </div>
   </footer>
 );

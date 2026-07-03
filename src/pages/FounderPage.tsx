@@ -45,76 +45,78 @@ const FounderPage = () => (
           </SectionReveal>
 
           <SectionReveal>
-            <div className="grid lg:grid-cols-5 rounded-2xl overflow-hidden border border-border/50 shadow-[0_12px_48px_-12px_hsla(210,28%,28%,0.14)]">
+            <div className="grid lg:grid-cols-12 rounded-2xl overflow-hidden border border-border/50 shadow-[0_12px_48px_-12px_hsla(210,28%,28%,0.14)]">
               {/* LEFT: Photo */}
-              <div className="lg:col-span-2 relative h-[350px] sm:h-[450px] lg:h-auto lg:min-h-[580px] overflow-hidden bg-[#fafafc] border-b lg:border-b-0 lg:border-r border-border/10">
+              <div className="lg:col-span-4 xl:col-span-4 relative h-[300px] sm:h-[400px] lg:h-auto overflow-hidden bg-[#fafafc] border-b lg:border-b-0 lg:border-r border-border/10">
                 <img
                   src={satyaImg}
                   alt={`${leadershipDetails.name} - ${leadershipDetails.title}`}
-                  className="w-full h-full object-cover object-[center_12%] scale-[1.03]"
+                  className="w-full h-full object-cover object-[center_12%]"
                 />
               </div>
 
               {/* RIGHT: Bio & Credentials */}
-              <div className="lg:col-span-3 bg-white p-7 md:p-10 lg:p-14 flex flex-col justify-center">
-                <h3 className="font-display text-3xl font-bold text-slate-navy leading-tight mb-1">
+              <div className="lg:col-span-8 xl:col-span-8 bg-white p-6 md:p-8 flex flex-col justify-center">
+                <h3 className="font-display text-2xl lg:text-3xl font-bold text-slate-navy leading-tight mb-1">
                   {leadershipDetails.name}
                 </h3>
-                <p className="text-vivid-amber font-semibold text-sm uppercase tracking-widest mb-2">
+                <p className="text-vivid-amber font-semibold text-xs lg:text-sm uppercase tracking-widest mb-1.5">
                   {leadershipDetails.title}
                 </p>
-                <p className="text-deep-azure font-semibold text-sm mb-6">
+                <p className="text-deep-azure font-semibold text-xs lg:text-sm mb-4">
                   {leadershipDetails.badges}
                 </p>
 
-                <p className="text-slate-navy/75 leading-relaxed mb-4">{leadershipDetails.bio}</p>
-                <p className="text-slate-navy/65 leading-relaxed mb-4">{leadershipDetails.bioExtended}</p>
-                <p className="text-slate-navy/65 leading-relaxed mb-8">{leadershipDetails.bioMission}</p>
+                <div className="text-sm lg:text-base text-slate-navy/75 leading-normal space-y-3 mb-6">
+                  <p>{leadershipDetails.bio}</p>
+                  <p className="text-slate-navy/65">{leadershipDetails.bioExtended}</p>
+                  <p className="text-slate-navy/65">{leadershipDetails.bioMission}</p>
+                </div>
 
                 {/* Qualifications */}
-                <div className="mb-8">
-                  <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-slate-navy/40 mb-3">
+                <div className="mb-6">
+                  <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-slate-navy/40 mb-2.5">
                     Qualifications & Professional Standing
                   </p>
-                  <div className="flex flex-wrap gap-2">
+                  <div className="flex flex-wrap gap-1.5">
                     {leadershipDetails.credentials.map(c => (
-                      <span key={c} className="text-xs px-3.5 py-1.5 rounded-sm border border-teal-accent/25 bg-teal-accent/5 text-teal-accent font-medium tracking-wide">
+                      <span key={c} className="text-[11px] px-2.5 py-1 rounded-sm border border-teal-accent/25 bg-teal-accent/5 text-teal-accent font-medium tracking-wide">
                         {c}
                       </span>
                     ))}
                   </div>
                 </div>
 
-                {/* Capability Statement */}
-                <div className="mb-8 pt-6 border-t border-border/40">
+                <div className="flex flex-col sm:flex-row gap-5 items-start sm:items-center pt-5 border-t border-border/40">
+                  {/* Capability Statement */}
                   <a
                     href={site.capabilityStatement}
                     download="ESSGEE Capability Statement.pdf"
-                    className="btn-pop inline-flex items-center gap-2"
+                    className="btn-pop text-xs py-2 px-4 inline-flex items-center gap-2 whitespace-nowrap"
                   >
-                    <Download className="w-4 h-4" strokeWidth={2.5} />
-                    Download Capability Statement
+                    <Download className="w-3.5 h-3.5" strokeWidth={2.5} />
+                    Download Capability
                   </a>
-                </div>
 
-                {/* Contact links */}
-                <div className="flex flex-wrap gap-6 pt-6 border-t border-border/40">
-                  <a
-                    href={`mailto:${leadershipDetails.email}`}
-                    className="group flex items-center gap-2 text-sm text-slate-navy/50 hover:text-vivid-amber transition-colors duration-200"
-                  >
-                    <Mail className="w-4 h-4" />
-                    {leadershipDetails.email}
-                  </a>
-                  <a
-                    href={leadershipDetails.linkedin}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="group flex items-center gap-2 text-sm text-slate-navy/50 hover:text-vivid-amber transition-colors duration-200"
-                  >
-                    <Linkedin className="w-4 h-4" />
-                    View LinkedIn Profile
-                  </a>
+                  {/* Contact links */}
+                  <div className="flex flex-wrap gap-4 sm:gap-6 ml-auto">
+                    <a
+                      href={`mailto:${leadershipDetails.email}`}
+                      className="group flex items-center gap-1.5 text-xs lg:text-sm text-slate-navy/50 hover:text-vivid-amber transition-colors duration-200"
+                    >
+                      <Mail className="w-4 h-4" />
+                      {leadershipDetails.email}
+                    </a>
+                    <a
+                      href={leadershipDetails.linkedin}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="group flex items-center gap-1.5 text-xs lg:text-sm text-slate-navy/50 hover:text-vivid-amber transition-colors duration-200"
+                    >
+                      <Linkedin className="w-4 h-4" />
+                      LinkedIn Profile
+                    </a>
+                  </div>
                 </div>
               </div>
             </div>

@@ -1,12 +1,12 @@
 import { useRef } from "react";
 import GlassCarousel from "./GlassCarousel";
 import { Link } from "react-router-dom";
-import transportImg from "@/assets/sector-transport.jpg";
-import waterImg from "@/assets/sector-water.jpg";
-import resourcesImg from "@/assets/sector-resources.jpg";
-import socialImg from "@/assets/sector-social.jpg";
-import defenceImg from "@/assets/sector-defence.jpg";
-import urbanImg from "@/assets/sector-urban.png";
+import transportImg from "@/assets/sector-transport-new.png";
+import waterImg from "@/assets/sector-energy.png";
+import resourcesImg from "@/assets/sector-resources-new.png";
+import socialImg from "@/assets/sector-property.png";
+import defenceImg from "@/assets/sector-government.png";
+import urbanImg from "@/assets/sector-construction.png";
 
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import ParallaxBackground from "./ParallaxBackground";
