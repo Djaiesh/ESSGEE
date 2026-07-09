@@ -2,7 +2,7 @@ import Footer from "@/components/Footer";
 import SectionReveal from "@/components/SectionReveal";
 import Seo from "@/components/Seo";
 import { Link } from "react-router-dom";
-import { servicePillars } from "@/data/siteContent";
+import { servicePillars, site } from "@/data/siteContent";
 import { Lightbulb, ShieldCheck, Rocket, Briefcase, CheckCircle2 } from "lucide-react";
 import capabilitiesHero from "@/assets/capabilities-hero.jpg";
 import ParallaxBackground from "@/components/ParallaxBackground";
@@ -35,7 +35,25 @@ const pillarImages: Record<string, string> = {
 
 const ServicesPage = () => (
   <>
-    <Seo title="Services" path="/services" description="ESSGEE Projects provides integrated advisory services across strategy, governance and delivery — helping organisations navigate complexity and achieve sustainable outcomes." />
+    <Seo
+      title="Services"
+      path="/services"
+      description="ESSGEE Projects provides integrated advisory services across strategy, governance and delivery — helping organisations navigate complexity and achieve sustainable outcomes."
+      jsonLd={{
+        "@context": "https://schema.org",
+        "@type": "Service",
+        provider: {
+          "@type": "Organization",
+          name: "ESSGEE Projects",
+          url: site.url
+        },
+        name: "Strategy, Governance & Delivery Advisory Services",
+        description: "ESSGEE Projects provides integrated advisory services across strategy, governance and delivery.",
+        url: `${site.url}/services`,
+        areaServed: ["Australia", "India", "Asia-Pacific"],
+        serviceType: ["Strategic Advisory", "Governance", "PMO/PfMO", "Project Management", "Program Management", "Portfolio Management", "Delivery Leadership"]
+      }}
+    />
     <main>
       {/* Hero */}
       <section className="relative h-[50vh] min-h-[400px] flex items-center justify-center overflow-hidden">

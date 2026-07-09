@@ -23,7 +23,18 @@ const sectorImages: Record<string, string> = {
 
 const SectorsPage = () => (
   <>
-    <Seo title="Sectors" path="/sectors" description="ESSGEE Projects brings advisory and delivery experience across infrastructure, construction, property, energy, industrial, resources and government sectors." />
+    <Seo
+      title="Sectors"
+      path="/sectors"
+      description="ESSGEE Projects brings advisory and delivery experience across infrastructure, construction, property, energy, industrial, resources and government sectors."
+      jsonLd={{
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        name: "Sectors | ESSGEE Projects",
+        description: "ESSGEE Projects brings advisory and delivery experience across infrastructure, construction, property, energy, industrial, resources and government sectors.",
+        url: `${site.url}/sectors`
+      }}
+    />
     <main>
       {/* Hero */}
       <section className="relative h-[50vh] min-h-[400px] flex items-center justify-center overflow-hidden">

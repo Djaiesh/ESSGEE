@@ -32,7 +32,10 @@ const Footer = () => (
         <div className="md:col-span-4 lg:col-span-4">
           <Link to="/" className="inline-flex items-center gap-4">
             <img src={logo} alt="" className="h-20 w-20 rounded-lg object-cover border border-white/10 shadow-lg" />
-            <span className="font-display text-2xl font-bold tracking-wide text-vivid-amber">ESSGEE PROJECTS</span>
+            <div className="flex flex-col justify-center gap-1">
+              <span className="font-display text-2xl font-bold tracking-widest text-vivid-amber leading-none">ESSGEE</span>
+              <span className="font-display text-sm font-semibold tracking-[0.2em] text-white leading-none uppercase">Projects</span>
+            </div>
           </Link>
           <p className="mt-5 max-w-sm text-sm leading-relaxed text-white/50">ESSGEE Projects supports organisations in transforming strategic intent into sustainable business and project outcomes through integrated advisory services spanning strategy, governance and delivery.</p>
           <p className="mt-3 text-sm font-semibold text-vivid-amber italic">Sustainability Through Strategy!</p>

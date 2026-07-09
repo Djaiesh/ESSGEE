@@ -2,7 +2,7 @@ import Footer from "@/components/Footer";
 import SectionReveal from "@/components/SectionReveal";
 import Seo from "@/components/Seo";
 import { Link } from "react-router-dom";
-import { approach, values } from "@/data/siteContent";
+import { approach, values, site } from "@/data/siteContent";
 import { Download, Search, ClipboardCheck, Compass, Cog, RefreshCw, Heart, Handshake, Wrench, Leaf } from "lucide-react";
 import aboutBg from "@/assets/about_realistic.png";
 import ParallaxBackground from "@/components/ParallaxBackground";
@@ -12,7 +12,28 @@ const valueIcons = [Heart, Handshake, Wrench, Leaf];
 
 const AboutPage = () => (
   <>
-    <Seo title="About" path="/about" description="ESSGEE Projects was established to help organisations bridge the gap between strategy, governance and delivery. Learn about our story, purpose, approach and values." />
+    <Seo
+      title="About"
+      path="/about"
+      description="ESSGEE Projects was established to help organisations bridge the gap between strategy, governance and delivery. Learn about our story, purpose, approach and values."
+      jsonLd={{
+        "@context": "https://schema.org",
+        "@type": "AboutPage",
+        name: "About ESSGEE Projects",
+        description: "ESSGEE Projects was established to help organisations bridge the gap between strategy, governance and delivery.",
+        url: `${site.url}/about`,
+        mainEntity: {
+          "@type": "Organization",
+          name: "ESSGEE Projects",
+          url: site.url,
+          founder: {
+            "@type": "Person",
+            name: "Satya Gady",
+            jobTitle: "Founder & Principal Consultant"
+          }
+        }
+      }}
+    />
     <main>
       {/* Hero */}
       <section className="relative h-[50vh] min-h-[400px] flex items-center justify-center overflow-hidden">

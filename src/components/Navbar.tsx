@@ -110,7 +110,10 @@ const Navbar = () => {
       <nav className="container mx-auto flex items-center justify-between px-6 h-24" aria-label="Main navigation">
         <Link to="/" className="flex items-center gap-3 z-10" aria-label="ESSGEE home">
           <img src={logo} alt="ESSGEE Projects" className="h-12 w-12 rounded-md object-cover border border-white/20 shadow-md" />
-          <span className="text-lg md:text-xl font-bold tracking-[0.15em] font-display text-vivid-amber inline-block">ESSGEE PROJECTS</span>
+          <div className="flex flex-col justify-center gap-0.5">
+            <span className="text-lg md:text-xl font-bold tracking-[0.15em] font-display text-vivid-amber leading-none">ESSGEE</span>
+            <span className="text-[10px] md:text-xs font-semibold tracking-[0.2em] font-display text-white leading-none uppercase">Projects</span>
+          </div>
         </Link>
 
         {/* Desktop nav */}

@@ -20,6 +20,7 @@ const ServicesPage = lazy(() => import("./pages/ServicesPage"));
 const SectorsPage = lazy(() => import("./pages/SectorsPage"));
 const FounderPage = lazy(() => import("./pages/FounderPage"));
 const InsightsPage = lazy(() => import("./pages/InsightsPage"));
+const InsightArticlePage = lazy(() => import("./pages/InsightArticlePage"));
 const ContactPage = lazy(() => import("./pages/ContactPage"));
 
 const queryClient = new QueryClient();
@@ -77,6 +78,7 @@ const AppContent = () => {
               <Route path="/sectors" element={<PageWrapper><Suspense fallback={suspenseFallback}><SectorsPage /></Suspense></PageWrapper>} />
               <Route path="/founder" element={<PageWrapper><Suspense fallback={suspenseFallback}><FounderPage /></Suspense></PageWrapper>} />
               <Route path="/insights" element={<PageWrapper><Suspense fallback={suspenseFallback}><InsightsPage /></Suspense></PageWrapper>} />
+              <Route path="/insights/:slug" element={<PageWrapper><Suspense fallback={suspenseFallback}><InsightArticlePage /></Suspense></PageWrapper>} />
               <Route path="/contact" element={<PageWrapper><Suspense fallback={suspenseFallback}><ContactPage /></Suspense></PageWrapper>} />
               <Route path="*" element={<PageWrapper><Suspense fallback={suspenseFallback}><NotFound /></Suspense></PageWrapper>} />
             </Routes>

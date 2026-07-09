@@ -2,6 +2,7 @@ import Footer from "@/components/Footer";
 import ConnectSection from "@/components/ConnectSection";
 import connectHero from "@/assets/contact_realistic.png";
 import Seo from "@/components/Seo";
+import { site } from "@/data/siteContent";
 
 const ContactPage = () => (
   <>
@@ -9,6 +10,20 @@ const ContactPage = () => (
       title="Contact"
       path="/contact"
       description="Let's start a conversation. Whether you are pursuing growth, entering a new market, strengthening governance or delivering a major initiative, ESSGEE Projects can help."
+      jsonLd={{
+        "@context": "https://schema.org",
+        "@type": "ContactPage",
+        name: "Contact ESSGEE Projects",
+        description: "Start a conversation with ESSGEE Projects about strategy, governance and delivery advisory.",
+        url: `${site.url}/contact`,
+        mainEntity: {
+          "@type": "Organization",
+          name: "ESSGEE Projects",
+          telephone: site.phoneDisplay,
+          email: site.email,
+          url: site.url
+        }
+      }}
     />
     <main>
       {/* Hero */}

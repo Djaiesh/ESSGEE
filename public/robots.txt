@@ -2,7 +2,21 @@ User-agent: *
 Allow: /
 Disallow: /assets/
 
+# Sitemap
 Sitemap: https://www.essgee.pro/sitemap.xml
 
 # ESSGEE Projects - Strategy, Governance & Delivery Advisory
 # https://www.essgee.pro
+
+# Crawl-delay (optional, for well-behaved bots)
+Crawl-delay: 1
+
+# Allow social media crawlers explicitly
+User-agent: Twitterbot
+Allow: /
+
+User-agent: facebookexternalhit
+Allow: /
+
+User-agent: LinkedInBot
+Allow: /

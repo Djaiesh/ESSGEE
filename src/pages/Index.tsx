@@ -5,7 +5,6 @@ import SectorsSection from "@/components/SectorsSection";
 import InsightsSection from "@/components/InsightsSection";
 import Footer from "@/components/Footer";
 
-import { Helmet } from "react-helmet-async";
 import Seo from "@/components/Seo";
 import { site } from "@/data/siteContent";
 
@@ -15,6 +14,8 @@ const jsonLd = {
   "name": "ESSGEE Projects",
   "description": "ESSGEE Projects is an integrated strategy, development and delivery advisory practice supporting organisations across Australia, India and the Asia-Pacific region.",
   "url": site.url,
+  "logo": `${site.url}${site.socialImage}`,
+  "image": `${site.url}${site.socialImage}`,
   "address": {
     "@type": "PostalAddress",
     "addressLocality": "Sydney",
@@ -24,7 +25,8 @@ const jsonLd = {
   "founder": {
     "@type": "Person",
     "name": "Satya Gady",
-    "jobTitle": "Founder & Principal Consultant"
+    "jobTitle": "Founder & Principal Consultant",
+    "url": `${site.url}/founder`
   },
   "areaServed": ["Australia", "India", "Asia-Pacific"],
   "telephone": site.phoneDisplay,
@@ -35,10 +37,11 @@ const jsonLd = {
 
 const Index = () => (
   <>
-    <Seo title="ESSGEE" description="ESSGEE Projects is an integrated strategy, development and delivery advisory practice. Bridging Strategy, Governance and Delivery across Australia, India and the Asia-Pacific region." />
-    <Helmet>
-      <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
-    </Helmet>
+    <Seo
+      title="ESSGEE"
+      description="ESSGEE Projects is an integrated strategy, development and delivery advisory practice. Bridging Strategy, Governance and Delivery across Australia, India and the Asia-Pacific region."
+      jsonLd={jsonLd}
+    />
     <main>
       <Hero />
       <OriginSection />

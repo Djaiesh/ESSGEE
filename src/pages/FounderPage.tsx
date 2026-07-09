@@ -15,6 +15,23 @@ const FounderPage = () => (
       title="Founder"
       path="/founder"
       description="Satya Gady, MBA, MGPM — Founder & Principal Consultant at ESSGEE Projects. Over 30 years of experience across infrastructure, construction, property, energy and major projects."
+      jsonLd={{
+        "@context": "https://schema.org",
+        "@type": "ProfilePage",
+        mainEntity: {
+          "@type": "Person",
+          name: "Satya Gady",
+          jobTitle: "Founder & Principal Consultant",
+          description: "MBA, MGPM — Founder & Principal Consultant at ESSGEE Projects. Chartered Manager, Certified Practising Project Manager and Fellow of the Institute of Managers and Leaders.",
+          url: `${site.url}/founder`,
+          worksFor: {
+            "@type": "Organization",
+            name: "ESSGEE Projects",
+            url: site.url
+          },
+          sameAs: ["https://www.linkedin.com/in/satya-gady"]
+        }
+      }}
     />
     <main>
       {/* Hero */}
