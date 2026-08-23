@@ -39,7 +39,7 @@ const Index = () => (
   <>
     <Seo
       title="ESSGEE"
-      description="ESSGEE Projects is an integrated strategy, development and delivery advisory practice. Bridging Strategy, Governance and Delivery across Australia, India and the Asia-Pacific region."
+      description="Strategy, governance and delivery advisory firm in Sydney, Australia. ESSGEE Projects helps organisations navigate complexity and achieve sustainable business and project outcomes."
       jsonLd={jsonLd}
     />
     <main>

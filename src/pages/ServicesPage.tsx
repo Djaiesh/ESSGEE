@@ -38,21 +38,70 @@ const ServicesPage = () => (
     <Seo
       title="Services"
       path="/services"
-      description="ESSGEE Projects provides integrated advisory services across strategy, governance and delivery — helping organisations navigate complexity and achieve sustainable outcomes."
-      jsonLd={{
-        "@context": "https://schema.org",
-        "@type": "Service",
-        provider: {
-          "@type": "Organization",
-          name: "ESSGEE Projects",
-          url: site.url
+      description="PMO setup, governance frameworks, project delivery and strategic advisory across infrastructure, construction, energy and government sectors in Australia."
+      jsonLd={[
+        {
+          "@context": "https://schema.org",
+          "@type": "Service",
+          provider: {
+            "@type": "Organization",
+            "@id": "https://www.essgee.pro/#organization",
+            name: "ESSGEE Projects",
+            url: site.url
+          },
+          name: "Strategy, Governance & Delivery Advisory Services",
+          description: "ESSGEE Projects provides integrated advisory services across strategy, governance and delivery — supporting organisations in infrastructure, construction, property, energy and government sectors across Australia and Asia-Pacific.",
+          url: `${site.url}/services`,
+          areaServed: ["Australia", "India", "Asia-Pacific"],
+          serviceType: ["Strategic Advisory", "Governance Advisory", "PMO/PfMO", "Project Management", "Program Management", "Portfolio Management", "Delivery Leadership"]
         },
-        name: "Strategy, Governance & Delivery Advisory Services",
-        description: "ESSGEE Projects provides integrated advisory services across strategy, governance and delivery.",
-        url: `${site.url}/services`,
-        areaServed: ["Australia", "India", "Asia-Pacific"],
-        serviceType: ["Strategic Advisory", "Governance", "PMO/PfMO", "Project Management", "Program Management", "Portfolio Management", "Delivery Leadership"]
-      }}
+        {
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          mainEntity: [
+            {
+              "@type": "Question",
+              name: "What advisory services does ESSGEE Projects provide?",
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: "ESSGEE Projects provides four integrated service pillars: Strategy (business development, market entry, feasibility studies), Governance (PMO/PfMO establishment, governance frameworks, risk management), Project Development (tender management, bid coordination, procurement planning), and Project Delivery (project management, program management, portfolio management, operational leadership)."
+              }
+            },
+            {
+              "@type": "Question",
+              name: "What is a PMO and how can ESSGEE Projects help establish one?",
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: "A Project Management Office (PMO) or Portfolio Management Office (PfMO) is a centralised function that standardises project governance, improves delivery performance and builds organisational capability. ESSGEE Projects helps organisations design, establish and enhance PMO and PfMO functions tailored to their size, sector and maturity level."
+              }
+            },
+            {
+              "@type": "Question",
+              name: "Which sectors does ESSGEE Projects work in?",
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: "ESSGEE Projects has experience across infrastructure, construction, property and development, energy and utilities, industrial and resources, and government and public sector organisations across Australia, India and the Asia-Pacific region."
+              }
+            },
+            {
+              "@type": "Question",
+              name: "Is ESSGEE Projects principal-led?",
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: "Yes. Every engagement at ESSGEE Projects is led directly by Satya Gady, Founder and Principal Consultant (MBA, MGPM, CMgr, CPPM, FIML). Clients receive direct access to senior expertise throughout the advisory process, without intermediaries."
+              }
+            },
+            {
+              "@type": "Question",
+              name: "Does ESSGEE Projects work outside Sydney?",
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: "Yes. While based in Sydney, NSW, ESSGEE Projects provides advisory services across Australia and has experience delivering projects in India and across the Asia-Pacific region."
+              }
+            }
+          ]
+        }
+      ]}
     />
     <main>
       {/* Hero */}

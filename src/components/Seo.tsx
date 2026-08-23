@@ -27,10 +27,29 @@ const Seo = ({
   jsonLd,
 }: SeoProps) => {
   const url = `${site.url}${path}`;
+
+  // Keyword-rich title map — specific pages get targeted, location-aware titles
+  // Format: "Keyword Page Title | ESSGEE Projects" (keyword first = better CTR + ranking)
+  const keywordTitles: Record<string, string> = {
+    "/about":    "About ESSGEE Projects — Strategy, Governance & Delivery Advisory | Sydney",
+    "/services": "Advisory Services — Strategy, Governance & Project Delivery | ESSGEE Projects",
+    "/sectors":  "Infrastructure, Construction, Energy & Government Advisory | ESSGEE Projects",
+    "/founder":  "Satya Gady MBA MGPM — Founder, Principal Consultant | ESSGEE Projects Sydney",
+    "/insights": "Insights — Strategy, Governance & Delivery Perspectives | ESSGEE Projects",
+    "/contact":  "Contact ESSGEE Projects — Strategic Advisory, Sydney Australia",
+  };
+
   const fullTitle =
     title === site.shortName
-      ? "ESSGEE Projects | Sustainability Through Strategy"
-      : `${title} | ESSGEE Projects`;
+      ? "ESSGEE Projects | Strategy, Governance & Delivery Advisory — Sydney, Australia"
+      : (keywordTitles[path] ?? `${title} | ESSGEE Projects`);
+
+  // Guard: Clamp description to 150 chars to prevent "Meta Description Over 155 Characters"
+  // and "Meta Description Over 985 Pixels" audit issues (Google truncates at ~155 chars / ~985px)
+  const safeDescription =
+    description.length > 150
+      ? description.slice(0, 147).trimEnd() + "..."
+      : description;
 
   // Build breadcrumb JSON-LD from path
   const breadcrumbLd = path
@@ -68,16 +87,19 @@ const Seo = ({
   return (
     <Helmet>
       <title>{fullTitle}</title>
-      <meta name="description" content={description} />
+      <meta name="description" content={safeDescription} />
       <link rel="canonical" href={url} />
       {noIndex && <meta name="robots" content="noindex, follow" />}
 
       {/* Open Graph */}
       <meta property="og:title" content={fullTitle} />
-      <meta property="og:description" content={description} />
+      <meta property="og:description" content={safeDescription} />
       <meta property="og:type" content={type} />
       <meta property="og:url" content={url} />
       <meta property="og:image" content={`${site.url}${site.socialImage}`} />
+      <meta property="og:image:width" content="1200" />
+      <meta property="og:image:height" content="630" />
+      <meta property="og:image:alt" content="ESSGEE Projects — Sustainability Through Strategy" />
       <meta property="og:site_name" content="ESSGEE Projects" />
       <meta property="og:locale" content="en_AU" />
 
@@ -92,8 +114,9 @@ const Seo = ({
       {/* Twitter Card */}
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content={fullTitle} />
-      <meta name="twitter:description" content={description} />
+      <meta name="twitter:description" content={safeDescription} />
       <meta name="twitter:image" content={`${site.url}${site.socialImage}`} />
+      <meta name="twitter:image:alt" content="ESSGEE Projects — Sustainability Through Strategy" />
 
       {/* JSON-LD Structured Data */}
       {allJsonLd.map((ld, i) => (

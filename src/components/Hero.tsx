@@ -112,10 +112,10 @@ const Hero = () => {
 
         <h1 
           ref={textRef}
-          className="hero-text font-display font-bold text-transparent bg-clip-text bg-[linear-gradient(110deg,#FFFFFF,45%,#7a7a7a,55%,#FFFFFF)] bg-[length:250%_100%] leading-tight text-balance drop-shadow-[0_4px_16px_rgba(0,0,0,0.65)]"
-          style={{ fontSize: "clamp(2rem, 5vw, 4.5rem)", marginBottom: "0.2em" }}
+          className="hero-text font-display font-bold text-white bg-clip-text bg-[linear-gradient(110deg,#FFFFFF,45%,#7a7a7a,55%,#FFFFFF)] bg-[length:250%_100%] leading-tight text-balance drop-shadow-[0_4px_16px_rgba(0,0,0,0.65)]"
+          style={{ fontSize: "clamp(2rem, 5vw, 4.5rem)", marginBottom: "0.2em", WebkitTextFillColor: "transparent" }}
         >
-          Sustainability Through Strategy!
+          Sustainability Through Strategy
         </h1>
 
         <div className="font-display font-bold leading-tight mb-4 text-center text-vivid-amber drop-shadow-[0_2px_8px_rgba(0,0,0,0.65)]" style={{ fontSize: "clamp(1.8rem, 4.5vw, 4rem)", minHeight: "1.5em" }}>

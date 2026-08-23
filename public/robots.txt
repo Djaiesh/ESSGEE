@@ -1,6 +1,5 @@
 User-agent: *
 Allow: /
-Disallow: /assets/
 
 # Sitemap
 Sitemap: https://www.essgee.pro/sitemap.xml

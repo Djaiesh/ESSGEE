@@ -19,7 +19,7 @@ const InsightsPage = () => (
     <Seo
       title="Insights"
       path="/insights"
-      description="Perspectives on strategy, governance, project delivery and sustainable outcomes from ESSGEE Projects. Read the full Insights Series."
+      description="Expert perspectives on strategy, governance, PMO, project management and sustainable delivery from ESSGEE Projects — Australia's advisory insights series."
       jsonLd={{
         "@context": "https://schema.org",
         "@type": "CollectionPage",

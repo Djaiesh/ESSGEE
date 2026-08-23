@@ -15,7 +15,7 @@ const AboutPage = () => (
     <Seo
       title="About"
       path="/about"
-      description="ESSGEE Projects was established to help organisations bridge the gap between strategy, governance and delivery. Learn about our story, purpose, approach and values."
+      description="Principal-led strategy, governance and delivery advisory firm in Sydney, Australia. Learn how ESSGEE Projects helps organisations achieve sustainable outcomes."
       jsonLd={{
         "@context": "https://schema.org",
         "@type": "AboutPage",

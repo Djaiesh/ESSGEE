@@ -14,20 +14,42 @@ const FounderPage = () => (
     <Seo
       title="Founder"
       path="/founder"
-      description="Satya Gady, MBA, MGPM — Founder & Principal Consultant at ESSGEE Projects. Over 30 years of experience across infrastructure, construction, property, energy and major projects."
+      description="Satya Gady MBA MGPM — Founder of ESSGEE Projects, Sydney. 30+ years experience across infrastructure, construction, energy, PMO and major project delivery in Australia."
       jsonLd={{
         "@context": "https://schema.org",
         "@type": "ProfilePage",
         mainEntity: {
           "@type": "Person",
+          "@id": "https://www.essgee.pro/founder#person",
           name: "Satya Gady",
           jobTitle: "Founder & Principal Consultant",
-          description: "MBA, MGPM — Founder & Principal Consultant at ESSGEE Projects. Chartered Manager, Certified Practising Project Manager and Fellow of the Institute of Managers and Leaders.",
+          description: "Satya Gady is an experienced business, project and operational leader with more than three decades of experience across infrastructure, construction, property, energy and major projects across Australia, India and Asia-Pacific.",
           url: `${site.url}/founder`,
+          image: `${site.url}/essgee-social.jpeg`,
           worksFor: {
             "@type": "Organization",
+            "@id": "https://www.essgee.pro/#organization",
             name: "ESSGEE Projects",
             url: site.url
+          },
+          hasCredential: [
+            { "@type": "EducationalOccupationalCredential", name: "Master of Business Administration (MBA)" },
+            { "@type": "EducationalOccupationalCredential", name: "Master of Global Project Management (MGPM)" },
+            { "@type": "EducationalOccupationalCredential", name: "Chartered Manager (CMgr)" },
+            { "@type": "EducationalOccupationalCredential", name: "Certified Practising Project Manager (CPPM)" },
+            { "@type": "EducationalOccupationalCredential", name: "Fellow, Institute of Managers and Leaders (FIML)" }
+          ],
+          knowsAbout: [
+            "Strategic Advisory", "Governance Frameworks", "PMO Establishment", "PfMO",
+            "Project Management", "Program Management", "Portfolio Management",
+            "Infrastructure Projects", "Construction Management", "Energy Projects",
+            "Project Controls", "Risk Management", "Tender Management", "Delivery Leadership"
+          ],
+          address: {
+            "@type": "PostalAddress",
+            addressLocality: "Sydney",
+            addressRegion: "NSW",
+            addressCountry: "AU"
           },
           sameAs: ["https://www.linkedin.com/in/satya-gady"]
         }

@@ -26,7 +26,7 @@ const SectorsPage = () => (
     <Seo
       title="Sectors"
       path="/sectors"
-      description="ESSGEE Projects brings advisory and delivery experience across infrastructure, construction, property, energy, industrial, resources and government sectors."
+      description="Advisory expertise across infrastructure, construction, property development, energy, industrial resources and government sectors — Australia and Asia-Pacific."
       jsonLd={{
         "@context": "https://schema.org",
         "@type": "WebPage",

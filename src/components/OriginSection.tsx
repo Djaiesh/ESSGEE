@@ -1,5 +1,6 @@
 import { useRef } from "react";
 import aboutBg from "@/assets/about_realistic.png";
+import { Link } from "react-router-dom";
 import { Layers, Compass, Leaf, BarChart3 } from "lucide-react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { useParallax } from "@/hooks/useParallax";
@@ -60,6 +61,10 @@ const OriginSection = () => {
             <p className="about-reveal text-body-lg text-slate-navy/60">
               By combining commercial insight, governance excellence and practical delivery experience, we assist clients in establishing direction, strengthening capability and achieving sustainable outcomes.
             </p>
+            <div className="about-reveal mt-8 flex flex-wrap gap-4">
+              <Link to="/about" className="btn-cta">Learn More About Us</Link>
+              <Link to="/services" className="btn-outline border-slate-navy/30 text-slate-navy hover:bg-slate-navy hover:text-white transition-colors">Explore Our Services</Link>
+            </div>
           </div>
 
           {/* Image */}

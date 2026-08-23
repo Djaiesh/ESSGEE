@@ -46,6 +46,12 @@ export interface InsightArticle {
   credentials: string;
   readTime: string;
   date: string;
+  /** ISO 8601 publish date e.g. "2026-07-05" — used in Article JSON-LD schema */
+  datePublished: string;
+  /** ISO 8601 modified date — used in Article JSON-LD schema */
+  dateModified: string;
+  /** Keyword array for Article schema and topical authority signals */
+  keywords: string[];
   accentColor: 'azure' | 'teal' | 'amber';
   authorBio?: string;
   authorRole?: string;
@@ -75,6 +81,9 @@ export const insightArticles: InsightArticle[] = [
     authorRole: 'Founder & Principal Consultant, ESSGEE Projects',
     readTime: '15 MIN READ',
     date: 'ARTICLE · 15 MIN READ',
+    datePublished: '2026-07-05',
+    dateModified: '2026-08-23',
+    keywords: ['strategy governance delivery', 'project governance framework', 'strategic advisory Australia', 'PMO establishment', 'project management advisory', 'governance framework', 'delivery leadership', 'infrastructure advisory'],
     accentColor: 'azure',
     coverStats: [
       { value: '30+', label: 'YEARS' },
@@ -244,6 +253,9 @@ export const insightArticles: InsightArticle[] = [
       'A thought-leadership perspective on strategy, governance and delivery.',
     readTime: '10 MIN READ',
     date: 'ARTICLE 02',
+    datePublished: '2026-07-12',
+    dateModified: '2026-08-23',
+    keywords: ['sustainability through strategy', 'sustainable project outcomes', 'value creation', 'governance model', 'project lifecycle management', 'sustainable advisory Australia'],
     accentColor: 'teal',
 
     sections: [
@@ -431,6 +443,9 @@ export const insightArticles: InsightArticle[] = [
       'A thought-leadership perspective on strategy, governance and delivery.',
     readTime: '10 MIN READ',
     date: 'ARTICLE 03',
+    datePublished: '2026-07-19',
+    dateModified: '2026-08-23',
+    keywords: ['project delivery systems', 'compliance framework', 'project controls', 'effective delivery', 'system implementation', 'management advisory Sydney'],
     accentColor: 'amber',
 
     sections: [

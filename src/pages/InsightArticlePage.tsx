@@ -286,23 +286,25 @@ const InsightArticlePage = () => {
     description: article.subtitle,
     author: {
       "@type": "Person",
+      "@id": "https://www.essgee.pro/founder#person",
       name: article.author,
       jobTitle: article.authorRole || "Founder & Principal Consultant",
       url: `${site.url}/founder`,
     },
     publisher: {
       "@type": "Organization",
+      "@id": "https://www.essgee.pro/#organization",
       name: "ESSGEE Projects",
       url: site.url,
       logo: { "@type": "ImageObject", url: `${site.url}${site.socialImage}` },
     },
     url: `${site.url}/insights/${article.slug}`,
-    datePublished: "2026-07-05",
-    dateModified: "2026-07-09",
+    datePublished: article.datePublished,
+    dateModified: article.dateModified,
     mainEntityOfPage: `${site.url}/insights/${article.slug}`,
     image: `${site.url}${site.socialImage}`,
     articleSection: "Insights",
-    keywords: ["strategy", "governance", "delivery", "project management", "sustainability", "PMO"],
+    keywords: article.keywords,
   };
 
   return (
@@ -312,7 +314,7 @@ const InsightArticlePage = () => {
         path={`/insights/${article.slug}`}
         description={article.subtitle}
         type="article"
-        publishedTime="2026-07-05"
+        publishedTime={article.datePublished}
         articleAuthor={article.author}
         jsonLd={articleJsonLd}
       />
